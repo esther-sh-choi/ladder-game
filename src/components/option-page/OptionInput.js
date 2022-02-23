@@ -8,7 +8,6 @@ const OptionInput = (props) => {
     const alphabets = ["A", "B", "C", "D", "E", "F"];
     options.push(alphabets[i]);
   }
-  console.log(options);
 
   return (
     <ul>
