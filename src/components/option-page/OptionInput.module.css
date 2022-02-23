@@ -1,0 +1,37 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  top: calc(125px + 9.06vh);
+  height: auto;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+}
+
+.letterIcon {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+      63.11% 63.11% at 31.97% 19.67%,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0) 69.79%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #f6c100;
+  box-shadow: 4px 15px 62px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "SF Pro Rounded", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: rgb(40, 40, 40);
+}

@@ -1,0 +1,9 @@
+.App {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  flex-grow: 1;
+}

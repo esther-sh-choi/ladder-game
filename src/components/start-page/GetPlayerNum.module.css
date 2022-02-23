@@ -1,0 +1,26 @@
+.playerNumForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="number"] {
+  width: 150px;
+  height: 65px;
+  border-radius: 10px;
+  font-size: calc(30px + 1vw);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+
+  background: transparent !important;
+  border-left: 1px solid #d8d8d8;
+  cursor: pointer;
+}
+
+input[type="number"]:focus {
+  border: calc(2px + 0.2vw) solid yellow;
+  outline: none;
+}
