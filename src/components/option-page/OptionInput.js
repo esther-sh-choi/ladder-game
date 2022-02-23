@@ -9,6 +9,7 @@ const OptionInput = (props) => {
     options.push(alphabets[i]);
   }
   console.log(options);
+  console.log("reviewed");
 
   return (
     <ul>
