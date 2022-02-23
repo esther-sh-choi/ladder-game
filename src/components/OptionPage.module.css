@@ -1,2 +1,13 @@
+.optionPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .optionInst {
+  margin-top: 80px;
+}
+
+.optionInput {
+  flex-grow: 1;
 }

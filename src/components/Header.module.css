@@ -1,14 +1,19 @@
 .headerContainer {
+  position: fixed;
+  /* width: calc(10px + 97vw); */
+  width: inherit;
+
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: calc(3px + 1vw);
   color: #23006d;
 
   font-family: "SF Pro", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(170, 170, 204, 0.25),
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #b3b3b390;
 }
 
 header {

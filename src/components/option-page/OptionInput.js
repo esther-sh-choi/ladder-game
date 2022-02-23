@@ -9,7 +9,6 @@ const OptionInput = (props) => {
     options.push(alphabets[i]);
   }
   console.log(options);
-  console.log("reviewed");
 
   return (
     <ul>
@@ -17,7 +16,7 @@ const OptionInput = (props) => {
         return (
           <li className={styles.option} key={i}>
             <span className={styles.letterIcon}>{option}</span>
-            <input type="text" />
+            <input type="text" placeholder={`Type Option ${option} here...`} />
           </li>
         );
       })}

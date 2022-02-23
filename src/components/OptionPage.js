@@ -7,14 +7,14 @@ import styles from "./OptionPage.module.css";
 
 const OptionPage = (props) => {
   return (
-    <Fragment>
+    <div className={styles.optionPage}>
       <Instruction className={styles.optionInst}>
         Type in the results.
         <br />
         (Max 30 characters)
       </Instruction>
-      <OptionInput numPlayer={props.numPlayer} />
-    </Fragment>
+      <OptionInput className={styles.optionInput} numPlayer={props.numPlayer} />
+    </div>
   );
 };
 

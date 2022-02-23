@@ -9,6 +9,13 @@ input[type="number"] {
   height: 65px;
   border-radius: 10px;
   font-size: calc(30px + 1vw);
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(170, 170, 204, 0.25),
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #ffffff;
+}
+
+input::placeholder {
+  color: rgba(170, 170, 204, 0.7);
 }
 
 input[type="number"]::-webkit-inner-spin-button,

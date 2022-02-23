@@ -1,7 +1,9 @@
 ul {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin: 10px;
 
   top: calc(125px + 9.06vh);
   height: auto;
@@ -9,12 +11,15 @@ ul {
 
 .option {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .letterIcon {
-  height: 100px;
-  width: 100px;
+  margin: 5px 30px 5px 0;
+
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   background: radial-gradient(
       63.11% 63.11% at 31.97% 19.67%,
@@ -34,4 +39,42 @@ ul {
   font-weight: bold;
   font-size: 40px;
   color: rgb(40, 40, 40);
+}
+
+input {
+  margin: 5px 30px;
+  font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial;
+  padding: 5px 20px;
+  width: 70vw;
+  font-size: calc(20px + 1vw);
+  align-self: center;
+
+  background: #f5f5fa;
+  /* Inner shadow 2 */
+
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(170, 170, 204, 0.25),
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #ffffff;
+  border-radius: 40px;
+}
+
+@media screen and (max-width: 1100px) {
+  input {
+    margin: 3px 5px;
+    width: 65vw;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  input {
+    margin: 3px 5px;
+    width: 58vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  input {
+    margin: 3px 5px;
+    width: 50vw;
+  }
 }
