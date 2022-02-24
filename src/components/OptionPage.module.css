@@ -4,10 +4,6 @@
   flex-direction: column;
 }
 
-.optionInst {
-  margin-top: calc(80px + 1vw);
-}
-
 .optionInput {
   flex-grow: 1;
 }
