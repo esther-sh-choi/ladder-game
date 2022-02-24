@@ -128,12 +128,17 @@ table {
   border-spacing: 0;
 }
 
-:root {
-  position: absolute;
-  width: 100vw;
+#root {
   height: 100vh;
-  left: 0px;
-  top: 0px;
+  width: 100vw;
+
+  background: linear-gradient(180deg, #3300a1 0%, #90068a 100%);
+  mix-blend-mode: normal;
+}
+
+body > #root > div {
+  height: 100vh;
+  width: 100vw;
 
   background: linear-gradient(180deg, #3300a1 0%, #90068a 100%);
   mix-blend-mode: normal;

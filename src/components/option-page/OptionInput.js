@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Button from "../UI/Button";
 
 import styles from "./OptionInput.module.css";
 
@@ -8,20 +10,47 @@ const OptionInput = (props) => {
     const alphabets = ["A", "B", "C", "D", "E", "F"];
     options.push(alphabets[i]);
   }
-  console.log(options);
-  console.log("reviewed");
+
+  const [resultOptions, setResultOptions] = useState({});
+
+  const resultOptionChangeHandler = (e) => {
+    const value = e.target.value;
+    setResultOptions({
+      ...resultOptions,
+      [e.target.name]: value,
+    });
+  };
+
+  const saveResultOptions = (e) => {
+    e.preventDefault();
+
+    // console.log(resultOptions);
+
+    props.onGetSavedOption(resultOptions);
+  };
 
   return (
-    <ul>
-      {options.map((option, i) => {
-        return (
-          <li className={styles.option} key={i}>
-            <span className={styles.letterIcon}>{option}</span>
-            <input type="text" />
-          </li>
-        );
-      })}
-    </ul>
+    <form className={styles.optionInputForm} onSubmit={saveResultOptions}>
+      <ul>
+        {options.map((option, i) => {
+          return (
+            <li className={styles.option} key={i}>
+              <span className={styles.letterIcon}>{option}</span>
+              <input
+                type="text"
+                name={option}
+                placeholder={`Type Option ${option} here...`}
+                maxLength="30"
+                onChange={resultOptionChangeHandler}
+              />
+            </li>
+          );
+        })}
+      </ul>
+      <Button className={styles.startBtn} type="submit">
+        START
+      </Button>
+    </form>
   );
 };
 

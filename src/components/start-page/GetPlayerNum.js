@@ -28,7 +28,7 @@ const GetPlayerNum = (props) => {
         onChange={playerNumChangeHandler}
         value={playerNum}
       />
-      <Button className="next" type="submit">
+      <Button className={styles.next} type="submit">
         NEXT
       </Button>
     </form>
