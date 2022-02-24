@@ -1,12 +1,12 @@
 .headerContainer {
   position: fixed;
   /* width: calc(10px + 97vw); */
-  width: inherit;
+  width: 100%;
 
   display: flex;
-  padding: calc(3px + 1vw);
-  color: #23006d;
+  padding: calc(3px + 1vw) 0;
 
+  color: #23006d;
   font-family: "SF Pro", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: rgb(255, 255, 255);
@@ -20,11 +20,13 @@ header {
   display: flex;
   flex-flow: column;
   flex-grow: 1;
+  justify-content: center;
   text-align: center;
   font-size: calc(10px + 1vw);
 }
 
 h1 {
+  padding-top: 5px;
   font-weight: bold;
 }
 
@@ -34,6 +36,7 @@ p {
 }
 
 .barIcon {
+  padding-right: calc(5px + 1vw);
   font-size: calc(30px + 1vw);
   cursor: pointer;
 }
