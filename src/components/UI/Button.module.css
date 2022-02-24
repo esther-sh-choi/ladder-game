@@ -2,10 +2,10 @@
   font-family: "SF Pro Rounded", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
   font-weight: bold;
-  font-size: calc(20px + 1vw);
+  font-size: calc(20px + 0.5vw);
 
-  width: 150px;
-  height: 65px;
+  width: 200px;
+  height: 55px;
 
   color: radial-gradient(
     92.09% 85.42% at 86.3% 87.5%,
@@ -30,7 +30,7 @@
     inset 0px 1px 1px rgba(255, 255, 255, 0.6),
     inset 0px -8px 36px rgba(0, 0, 0, 0.3),
     inset 0px 1px 5px rgba(255, 255, 255, 0.6);
-  border-radius: 24px;
+  border-radius: 10px;
 
   margin-bottom: calc(10px + 1vw);
 

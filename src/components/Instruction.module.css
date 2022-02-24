@@ -3,13 +3,13 @@
     sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: calc(50px + 0.5vw);
-  line-height: 60px;
+  font-size: calc(20px + 2vw);
+  line-height: calc(18px + 4vw);
   text-align: center;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 
   color: #fffba3;
 
   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.48);
-  margin-top: calc(80px + 1vw);
+  margin-top: calc(70px + 2vw);
 }

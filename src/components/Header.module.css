@@ -23,7 +23,7 @@ header {
   flex-grow: 1;
   justify-content: center;
   text-align: center;
-  font-size: calc(10px + 1vw);
+  font-size: calc(15px + 0.8vw);
 }
 
 h1 {
