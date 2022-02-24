@@ -4,7 +4,8 @@
   width: 100%;
 
   display: flex;
-  padding: calc(3px + 1vw) 0;
+  align-items: center;
+  padding: 10px 0;
 
   color: #23006d;
   font-family: "SF Pro", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

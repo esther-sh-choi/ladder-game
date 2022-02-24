@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import Instruction from "./Instruction";
 import OptionInput from "./option-page/OptionInput";
@@ -6,6 +6,12 @@ import OptionInput from "./option-page/OptionInput";
 import styles from "./OptionPage.module.css";
 
 const OptionPage = (props) => {
+  const saveOptionsHandler = (optionsObj) => {
+    props.onSaveOptions(optionsObj);
+  };
+
+  // console.log(inputOptions);
+
   return (
     <div className={styles.optionPage}>
       <Instruction className={styles.optionInst}>
@@ -13,7 +19,11 @@ const OptionPage = (props) => {
         <br />
         (Max 30 characters)
       </Instruction>
-      <OptionInput className={styles.optionInput} numPlayer={props.numPlayer} />
+      <OptionInput
+        className={styles.optionInput}
+        numPlayer={props.numPlayer}
+        onGetSavedOption={saveOptionsHandler}
+      />
     </div>
   );
 };
