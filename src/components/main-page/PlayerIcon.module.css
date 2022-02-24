@@ -1,0 +1,130 @@
+.player-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icon {
+  margin-top: 100px;
+  width: 175px;
+  height: 175px;
+  filter: drop-shadow(5px 10px 15px rgba(0, 0, 0, 0.68));
+  border-radius: 150px;
+}
+
+.fourPlayers {
+  width: 175px;
+  height: 175px;
+}
+
+.fivePlayers {
+  width: 165px;
+  height: 165px;
+}
+
+.sixPlayers {
+  margin-top: 90px;
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 950px) {
+  .icon {
+    width: 160px;
+    height: 160px;
+  }
+
+  .sixPlayers {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .fivePlayers {
+    width: 140px;
+    height: 140px;
+  }
+
+  .sixPlayers {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .icon {
+    width: 140px;
+    height: 140px;
+  }
+
+  .fivePlayers {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .fourPlayers {
+    width: 125px;
+    height: 125px;
+  }
+
+  .fivePlayers {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sixPlayers {
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .fourPlayers {
+    width: 105px;
+    height: 105px;
+  }
+
+  .fivePlayers {
+    width: 85px;
+    height: 85px;
+  }
+
+  .sixPlayers {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .fourPlayers {
+    width: 90px;
+    height: 90px;
+  }
+
+  .fivePlayers {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sixPlayers {
+    width: 60px;
+    height: 60px;
+  }
+} ;
