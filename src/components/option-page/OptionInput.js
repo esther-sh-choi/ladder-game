@@ -39,7 +39,7 @@ const OptionInput = (props) => {
               <input
                 type="text"
                 name={option}
-                placeholder={`Type Option ${option} here...`}
+                placeholder={`Type Option ${option}`}
                 maxLength="30"
                 onChange={resultOptionChangeHandler}
               />

@@ -35,4 +35,10 @@
   margin-bottom: calc(10px + 1vw);
 
   cursor: pointer;
+
+  transition: transform 0.35 s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
 }
