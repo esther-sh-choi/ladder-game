@@ -1,0 +1,76 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modalContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultModal {
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+
+  width: calc(150px + 30vw);
+  height: calc(100px + 15vh);
+
+  background: rgba(255, 255, 255, 0.688);
+  border-radius: 20px;
+
+  font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+
+  z-index: 100;
+  overflow: hidden;
+}
+
+.resultModal header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(109, 7, 137, 0.763);
+
+  font-size: calc(15px + 1vw);
+  font-weight: bold;
+  color: white;
+}
+
+header h2 {
+  padding: 10px 15px;
+}
+
+.closeIcon {
+  padding: 10px 15px;
+  font-size: calc(20px + 1vw);
+}
+
+.resultModal .content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.content p {
+  font-size: calc(20px + 0.5vw);
+}
+
+@media screen and (max-width: 950px) {
+  .resultModal {
+    position: relative;
+  }
+}

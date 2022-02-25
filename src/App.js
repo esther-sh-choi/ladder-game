@@ -36,7 +36,7 @@ function App() {
           onSaveOptions={saveOptionsHandler}
         />
       )}
-      {start && <MainPage numPlayer={numPlayer} />}
+      {start && <MainPage numPlayer={numPlayer} inputResults={inputOptions} />}
     </div>
   );
 }

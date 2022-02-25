@@ -11,5 +11,5 @@
   color: #fffba3;
 
   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.48);
-  margin-top: calc(70px + 2vw);
+  margin: calc(70px + 2vw) calc(10px + 2vw) 0 calc(10px + 2vw);
 }

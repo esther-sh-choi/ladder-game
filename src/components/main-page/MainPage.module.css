@@ -1,0 +1,25 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+}
+
+footer.main {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 10px;
+}
+
+.restartBtn,
+.resultBtn {
+  height: 40px;
+  font-size: calc(15px + 0.5vw);
+}
+
+@media screen and (max-width: 650px) {
+  .restartBtn,
+  .resultBtn {
+    margin: 5px;
+    flex-grow: 1;
+  }
+}
