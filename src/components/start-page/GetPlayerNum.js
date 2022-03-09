@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import bgm from "../bgm/bgm";
+
 import Button from "../UI/Button";
 
 import styles from "./GetPlayerNum.module.css";
@@ -15,6 +17,11 @@ const GetPlayerNum = (props) => {
     e.preventDefault();
 
     props.onGetPlayerNum(playerNum);
+    if (!props.musicOff) {
+      bgm.melodicTechnoSound.play();
+    } else if (props.musicOff) {
+      bgm.melodicTechnoSound.pause();
+    }
   };
 
   return (
