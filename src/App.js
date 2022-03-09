@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import bgm from "./components/bgm/bgm";
@@ -30,24 +31,41 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Header
-        title="The Ladder Game"
-        numPlayer={numPlayer && `${numPlayer} people playing`}
-        onToggleSound={toggleSoundHandler}
-      />
-      {!numPlayer && (
-        <StartPage onSavePlayerNum={savePlayerNumHandler} musicOff={musicOff} />
-      )}
-      {numPlayer > 1 && !start && (
-        <OptionPage
-          className="input"
-          numPlayer={numPlayer}
-          onSaveOptions={saveOptionsHandler}
+    <Router>
+      <div className="app">
+        <Header
+          title="The Ladder Game"
+          numPlayer={numPlayer && `${numPlayer} people playing`}
+          onToggleSound={toggleSoundHandler}
         />
-      )}
-      {start && <MainPage numPlayer={numPlayer} inputResults={inputOptions} />}
-    </div>
+        <Switch>
+          <Route exact path="/">
+            {!numPlayer && (
+              <StartPage
+                onSavePlayerNum={savePlayerNumHandler}
+                musicOff={musicOff}
+              />
+            )}
+          </Route>
+
+          {numPlayer > 1 && !start && (
+            <Route path="/option">
+              <OptionPage
+                className="input"
+                numPlayer={numPlayer}
+                onSaveOptions={saveOptionsHandler}
+              />
+            </Route>
+          )}
+
+          {start && (
+            <Route path="/main_game">
+              <MainPage numPlayer={numPlayer} inputResults={inputOptions} />
+            </Route>
+          )}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

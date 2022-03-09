@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import Button from "../UI/Button";
 
 import styles from "./OptionInput.module.css";
 
 const OptionInput = (props) => {
+  const history = useHistory();
+
   let options = [];
   for (let i = 0; i < props.numPlayer; i++) {
     const alphabets = ["A", "B", "C", "D", "E", "F"];
@@ -27,6 +30,7 @@ const OptionInput = (props) => {
     // console.log(resultOptions);
 
     props.onGetSavedOption(resultOptions);
+    history.push("/main_game");
   };
 
   return (

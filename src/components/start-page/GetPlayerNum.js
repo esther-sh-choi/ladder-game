@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import bgm from "../bgm/bgm";
 
@@ -7,21 +8,25 @@ import Button from "../UI/Button";
 import styles from "./GetPlayerNum.module.css";
 
 const GetPlayerNum = (props) => {
-  const [playerNum, setPlayerNum] = useState("");
+  const playerNumRef = useRef();
 
-  const playerNumChangeHandler = (e) => {
-    setPlayerNum(e.target.value);
-  };
+  const history = useHistory();
 
   const savePlayerNumHandler = (e) => {
     e.preventDefault();
 
+    const playerNum = playerNumRef.current.value;
     props.onGetPlayerNum(playerNum);
+
+    console.log(playerNum);
+
     if (!props.musicOff) {
       bgm.melodicTechnoSound.play();
     } else if (props.musicOff) {
       bgm.melodicTechnoSound.pause();
     }
+
+    history.push("/option");
   };
 
   return (
@@ -32,8 +37,7 @@ const GetPlayerNum = (props) => {
         step="1"
         min="2"
         max="6"
-        onChange={playerNumChangeHandler}
-        value={playerNum}
+        ref={playerNumRef}
       />
       <Button className={styles.next} type="submit">
         NEXT

@@ -1,4 +1,4 @@
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
 import MelodicTechno from "./melodic-techno.mp3";
 
 const bgm = {
