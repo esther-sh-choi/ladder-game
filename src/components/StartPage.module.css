@@ -1,7 +1,0 @@
-.start {
-  height: calc(100vh - 8.58vh);
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}

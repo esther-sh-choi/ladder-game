@@ -11,12 +11,9 @@
 .modalContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .resultModal {
-  position: fixed;
-
   display: flex;
   flex-direction: column;
 

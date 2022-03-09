@@ -1,0 +1,15 @@
+.instruction {
+  font-family: "SF Pro Rounded", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: calc(20px + 2vw);
+  line-height: calc(18px + 4vw);
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #fffba3;
+
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.48);
+  margin: calc(70px + 2vw) calc(10px + 2vw) 0 calc(10px + 2vw);
+}

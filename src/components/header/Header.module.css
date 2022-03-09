@@ -1,0 +1,52 @@
+.headerContainer {
+  position: fixed;
+  /* width: calc(10px + 97vw); */
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+
+  color: #23006d;
+  font-family: "SF Pro", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(170, 170, 204, 0.25),
+    inset 5px 5px 10px rgba(170, 170, 204, 0.5), inset -5px -5px 10px #b3b3b390;
+
+  z-index: 100;
+}
+
+.headerContainer header {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  font-size: calc(15px + 0.8vw);
+}
+
+h1 {
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.9em;
+  padding-top: 5px;
+}
+
+.barIcon {
+  position: fixed;
+  right: 0;
+  padding-right: calc(5px + 1vw);
+  font-size: calc(30px + 1vw);
+  cursor: pointer;
+}
+
+.barIcon:hover,
+.barIcon:focus {
+  color: #c057d0;
+}
