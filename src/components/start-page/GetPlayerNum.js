@@ -7,6 +7,13 @@ import Button from "../UI/Button";
 
 import styles from "./GetPlayerNum.module.css";
 
+const playBGM = () => {
+  bgm.melodicTechnoSound.play();
+};
+const pauseBGM = () => {
+  bgm.melodicTechnoSound.pause();
+};
+
 const GetPlayerNum = (props) => {
   const playerNumRef = useRef();
 
@@ -21,9 +28,9 @@ const GetPlayerNum = (props) => {
     console.log(playerNum);
 
     if (!props.musicOff) {
-      bgm.melodicTechnoSound.play();
+      playBGM();
     } else if (props.musicOff) {
-      bgm.melodicTechnoSound.pause();
+      pauseBGM();
     }
 
     history.push("/option");

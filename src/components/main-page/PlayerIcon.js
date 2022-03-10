@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import OptionsContext from "../../store/options-context";
 
 import styles from "./PlayerIcon.module.css";
 import bear from "../../images/player1-bear.png";
@@ -9,9 +11,11 @@ import fox from "../../images/player5-fox.png";
 import panda from "../../images/player6-panda.png";
 
 const PlayerIcon = (props) => {
+  const optionsCtx = useContext(OptionsContext);
+
   const icons = [];
 
-  for (let i = 0; i < props.numPlayer; i++) {
+  for (let i = 0; i < optionsCtx.options.length; i++) {
     const animalList = [bear, dog, racoon, cat, fox, panda];
 
     icons.push(animalList[i]);

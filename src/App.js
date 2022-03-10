@@ -11,20 +11,12 @@ import MainPage from "./components/main-page/MainPage";
 
 function App() {
   const [numPlayer, setNumPlayer] = useState("");
-  const [inputOptions, setInputOptions] = useState({});
   const [start, setStart] = useState(false);
   const [musicOff, setMusicOff] = useState(false);
 
   const savePlayerNumHandler = (num) => {
     setNumPlayer(num);
   };
-
-  const saveOptionsHandler = (optionObj) => {
-    setInputOptions({ ...optionObj });
-    setStart(true);
-  };
-
-  console.log(inputOptions);
 
   const toggleSoundHandler = (musicOff) => {
     setMusicOff(musicOff);
@@ -47,22 +39,15 @@ function App() {
               />
             )}
           </Route>
-
           {numPlayer > 1 && !start && (
             <Route path="/option">
-              <OptionPage
-                className="input"
-                numPlayer={numPlayer}
-                onSaveOptions={saveOptionsHandler}
-              />
+              <OptionPage className="input" numPlayer={numPlayer} />
             </Route>
           )}
-
-          {start && (
-            <Route path="/main_game">
-              <MainPage numPlayer={numPlayer} inputResults={inputOptions} />
-            </Route>
-          )}
+          <Route path="/main_game">
+            <MainPage />
+          </Route>
+          )
         </Switch>
       </div>
     </Router>

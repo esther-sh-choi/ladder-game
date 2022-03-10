@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import Button from "../UI/Button";
+import OptionsContext from "../../store/options-context";
 
 import styles from "./OptionInput.module.css";
 
 const OptionInput = (props) => {
   const history = useHistory();
+
+  const optionsCtx = useContext(OptionsContext);
 
   let options = [];
   for (let i = 0; i < props.numPlayer; i++) {
@@ -14,22 +17,37 @@ const OptionInput = (props) => {
     options.push(alphabets[i]);
   }
 
-  const [resultOptions, setResultOptions] = useState({});
+  const [resultOptions, setResultOptions] = useState([]);
+
+  let value;
+  let key;
+  let letter;
 
   const resultOptionChangeHandler = (e) => {
-    const value = e.target.value;
-    setResultOptions({
+    value = e.target.value;
+    key = e.target.id;
+    letter = e.target.name;
+    setResultOptions([
       ...resultOptions,
-      [e.target.name]: value,
-    });
+      {
+        id: key,
+        [letter]: value,
+      },
+    ]);
   };
 
   const saveResultOptions = (e) => {
     e.preventDefault();
 
-    // console.log(resultOptions);
+    if (props.numPlayer > resultOptions.length) {
+      console.log("You must type in more than 1 character");
+      return;
+    }
 
-    props.onGetSavedOption(resultOptions);
+    console.log(resultOptions);
+
+    optionsCtx.saveOptions([...resultOptions]);
+
     history.push("/main_game");
   };
 
@@ -44,7 +62,9 @@ const OptionInput = (props) => {
                 type="text"
                 name={option}
                 placeholder={`Type Option ${option}`}
+                minLength="1"
                 maxLength="30"
+                id={i}
                 onChange={resultOptionChangeHandler}
               />
             </li>
