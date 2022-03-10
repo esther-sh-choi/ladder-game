@@ -16,7 +16,7 @@ const ResultModal = (props) => {
       <div className={styles.backdrop}></div>
       <div className={styles.resultModal}>
         <header>
-          <h2>{`Option ${props.resultLetter}`}</h2>
+          <h2>{`Option ${props.letterChosen}`}</h2>
           <FontAwesomeIcon
             className={styles.closeIcon}
             icon={faXmark}

@@ -1,9 +1,6 @@
 .optionPage {
   height: 100vh;
+  overflow-y: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.optionInput {
-  flex-grow: 1;
 }

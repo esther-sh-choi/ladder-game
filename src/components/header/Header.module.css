@@ -5,7 +5,7 @@
 
   display: flex;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 0 7px 0;
 
   color: #23006d;
   font-family: "SF Pro", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -25,17 +25,16 @@
   flex-grow: 1;
   justify-content: center;
   text-align: center;
-  font-size: calc(15px + 0.8vw);
+  font-size: calc(18px + 0.3vw);
 }
 
 h1 {
-  padding-top: 5px;
   font-weight: bold;
 }
 
 p {
-  font-size: 0.9em;
-  padding-top: 5px;
+  font-size: 0.75em;
+  padding-top: 3px;
 }
 
 .barIcon {

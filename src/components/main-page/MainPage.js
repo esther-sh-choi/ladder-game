@@ -1,6 +1,7 @@
 import React, { useState, Fragment, useContext } from "react";
 
 import PlayerIcon from "./PlayerIcon";
+import VerticalLadder from "./VerticalLadder";
 import ResultButtons from "./ResultButtons";
 import ResultModal from "../UI/ResultModal";
 import Button from "../UI/Button";
@@ -32,7 +33,10 @@ const MainPage = () => {
   return (
     <Fragment>
       <div className={styles["main-page"]}>
-        <PlayerIcon></PlayerIcon>
+        <PlayerIcon />
+        <div className={styles["vertical-ladder"]}>
+          <VerticalLadder />
+        </div>
         <ResultButtons onGetChosenResult={showResultModalHandler} />
         <footer className={styles.main}>
           <Button className={styles.restartBtn}>RESTART</Button>

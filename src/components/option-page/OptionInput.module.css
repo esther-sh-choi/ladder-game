@@ -1,6 +1,6 @@
 form.optionInputForm {
   top: calc(125px + 9.06vh);
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -11,7 +11,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: calc(10px + 1vw) 0;
+  /* margin: calc(10px + 1vw) 0; */
 }
 
 .option {
@@ -21,8 +21,9 @@ ul {
 
 span.letterIcon {
   align-self: center;
-  height: calc(70px + 0.1vw);
-  width: calc(70px + 0.1vw);
+  height: 8vh;
+  width: 8vh;
+  margin: 2px 0;
   border-radius: 50%;
   background: radial-gradient(
       63.11% 63.11% at 31.97% 19.67%,
@@ -53,8 +54,8 @@ span.letterIcon {
   font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial;
   padding: 5px 20px;
   width: 50vw;
-  height: 5vh;
-  font-size: calc(20px + 0.2vw);
+  height: 4vh;
+  font-size: calc(15px + 0.2vw);
   align-self: center;
 
   background: #f5f5fa;
@@ -68,7 +69,7 @@ span.letterIcon {
 
 .option input::placeholder {
   color: rgba(0, 0, 0, 0.25);
-  font-size: calc(20px + 0.2vw);
+  font-size: calc(18px + 0.2vw);
 }
 
 input::selection {
@@ -92,13 +93,9 @@ textarea:focus {
 }
 
 @media screen and (max-width: 650px) {
-  .ul {
-    margin: calc(20px + 1vw) 0;
-  }
-
   span.letterIcon {
-    width: 65px;
-    height: 65px;
+    width: 8vh;
+    height: 8vh;
   }
 
   .option input {
@@ -116,10 +113,6 @@ textarea:focus {
 }
 
 @media screen and (max-width: 350px) {
-  .ul {
-    margin: calc(20px + 1vw) 0;
-  }
-
   span.letterIcon {
     width: 50px;
     height: 50px;

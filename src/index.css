@@ -129,16 +129,17 @@ table {
 }
 
 #root {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
+  overflow-y: scroll;
   background: linear-gradient(180deg, #3300a1 0%, #90068a 100%);
   mix-blend-mode: normal;
 }
 
 body > #root > div {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
   background: linear-gradient(180deg, #3300a1 0%, #90068a 100%);
   mix-blend-mode: normal;
