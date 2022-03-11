@@ -1,5 +1,5 @@
 .App {
-  height: inherit;
+  height: 100vh;
   width: inherit;
   display: flex;
   flex-direction: column;

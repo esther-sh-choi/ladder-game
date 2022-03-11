@@ -12,9 +12,9 @@ const HeaderMenu = (props) => {
     props.onToggleSound(musicOff);
     console.log(musicOff);
     // if (musicOff && bgm.melodicTechnoSound.playing()) {
-    //   bgm.melodicTechnoSound.pause();
+    //   pauseBGM();
     // } else if (!musicOff && !bgm.melodicTechnoSound.playing()) {
-    //   bgm.melodicTechnoSound.play();
+    //   playBGM();
     // }
   };
 

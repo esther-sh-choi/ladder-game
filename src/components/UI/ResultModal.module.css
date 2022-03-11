@@ -2,25 +2,29 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 10;
   background: rgba(0, 0, 0, 0.75);
 }
 
-.modalContainer {
+/* .modalContainer {
   display: flex;
   justify-content: center;
-}
+} */
 
 .resultModal {
+  position: fixed;
+  top: calc(50% - (100px + 15vh) / 2);
+  left: calc(50% - (150px + 30vw) / 2);
+
   display: flex;
   flex-direction: column;
 
   width: calc(150px + 30vw);
   height: calc(100px + 15vh);
 
-  background: rgba(255, 255, 255, 0.688);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
 
   font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
@@ -64,10 +68,4 @@ header h2 {
 
 .content p {
   font-size: calc(20px + 0.5vw);
-}
-
-@media screen and (max-width: 950px) {
-  .resultModal {
-    position: relative;
-  }
 }

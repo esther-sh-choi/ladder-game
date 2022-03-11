@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import OptionsContext from "../../store/options-context";
 import styles from "./ResultButtons.module.css";
 
 const ResultButtons = (props) => {
+  const optionsCtx = useContext(OptionsContext);
+
   const alphBtns = [];
 
-  for (let i = 0; i < props.numPlayer; i++) {
+  for (let i = 0; i < optionsCtx.options.length; i++) {
     const alphList = ["A", "B", "C", "D", "E", "F"];
 
     alphBtns.push(alphList[i]);
