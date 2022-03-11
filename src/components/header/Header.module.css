@@ -40,8 +40,8 @@ p {
 .barIcon {
   position: fixed;
   right: 0;
-  padding-right: calc(5px + 1vw);
-  font-size: calc(30px + 1vw);
+  padding-right: calc(3px + 1vw);
+  font-size: calc(25px + 1vw);
   cursor: pointer;
 }
 

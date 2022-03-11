@@ -7,7 +7,7 @@
 
 .vertical-ladder {
   flex-grow: 1;
-  align-self: center;
+  width: 100%;
 }
 
 footer.main {
