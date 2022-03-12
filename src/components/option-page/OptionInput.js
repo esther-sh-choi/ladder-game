@@ -27,6 +27,8 @@ const OptionInput = (props) => {
     value = e.target.value;
     key = e.target.id;
     letter = e.target.name;
+
+    // FIX BUG - When fixing typing, it saves multiple
     setResultOptions([
       ...resultOptions,
       {

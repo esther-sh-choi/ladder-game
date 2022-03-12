@@ -9,9 +9,10 @@ import StartPage from "./components/start-page/StartPage";
 import OptionPage from "./components/option-page/OptionPage";
 import MainPage from "./components/main-page/MainPage";
 
+import { LadderContextProvider } from "./store/ladder-context";
+
 function App() {
   const [numPlayer, setNumPlayer] = useState("");
-  const [start, setStart] = useState(false);
   const [musicOff, setMusicOff] = useState(false);
 
   const savePlayerNumHandler = (num) => {
@@ -39,13 +40,15 @@ function App() {
               />
             )}
           </Route>
-          {numPlayer > 1 && !start && (
+          {numPlayer > 1 && (
             <Route path="/option">
               <OptionPage className="input" numPlayer={numPlayer} />
             </Route>
           )}
           <Route path="/main_game">
-            <MainPage />
+            <LadderContextProvider>
+              <MainPage />
+            </LadderContextProvider>
           </Route>
           )
         </Switch>
