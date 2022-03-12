@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useContext } from "react";
 
 import PlayerIcon from "./PlayerIcon";
-import VerticalLadder from "./VerticalLadder";
+import Ladder from "./Ladder";
 import ResultButtons from "./ResultButtons";
 import ResultModal from "../UI/ResultModal";
 import Button from "../UI/Button";
@@ -35,7 +35,7 @@ const MainPage = () => {
       <div className={styles["main-page"]}>
         <PlayerIcon />
         <div className={styles["vertical-ladder"]}>
-          <VerticalLadder />
+          <Ladder />
         </div>
         <ResultButtons onGetChosenResult={showResultModalHandler} />
         <footer className={styles.main}>

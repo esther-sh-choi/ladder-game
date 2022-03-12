@@ -23,6 +23,9 @@ const GetPlayerNum = (props) => {
     e.preventDefault();
 
     const playerNum = playerNumRef.current.value;
+    if (!playerNum) {
+      return;
+    }
     props.onGetPlayerNum(playerNum);
 
     console.log(playerNum);
