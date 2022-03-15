@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
-import bgm from "./components/bgm/bgm";
-
 import Header from "./components/header/Header";
 import StartPage from "./components/start-page/StartPage";
 import OptionPage from "./components/option-page/OptionPage";
 import MainPage from "./components/main-page/MainPage";
+import ResultPage from "./components/result-page/ResultPage";
 
 import { LadderContextProvider } from "./store/ladder-context";
 
@@ -50,7 +49,9 @@ function App() {
               <MainPage />
             </LadderContextProvider>
           </Route>
-          )
+          <Route path="/result">
+            <ResultPage />
+          </Route>
         </Switch>
       </div>
     </Router>
