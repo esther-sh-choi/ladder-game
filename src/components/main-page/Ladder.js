@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 
+import { animatedLine } from "./animatedLine";
+
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
 import ladderAlgorithm from "./ladderAlgorithm";
@@ -102,7 +104,24 @@ const Ladder = (props) => {
     if (ladderCtx.ladderArr.length > 0) {
       drawHorizontal(context, width, height);
     }
-  }, [drawVertical, drawHorizontal, width, height]);
+  });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    if (props.player) {
+      animatedLine(
+        context,
+        width,
+        height,
+        numPlayer,
+        ladderCtx,
+        optionsCtx,
+        props.player
+      );
+    }
+    // console.log(optionsCtx.results);
+  }, [optionsCtx, props.player]);
 
   return (
     <div className={styles["ladder-container"]} ref={containerSizeRef}>
@@ -112,7 +131,7 @@ const Ladder = (props) => {
         height={height}
         ref={canvasRef}
         {...props}
-      />
+      ></canvas>
     </div>
   );
 };

@@ -1,0 +1,47 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-container {
+  margin-top: calc(50px + 2vw);
+  margin-right: calc(50px + 2vw);
+  margin-left: calc(50px + 2vw);
+  flex-grow: 1;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-icons {
+  width: calc(150px + 3vw);
+  height: calc(150px + 3vw);
+
+  margin: calc(10px + 2vw);
+  align-self: center;
+
+  cursor: pointer;
+
+  transition: transform 0.35 s ease-in-out;
+}
+
+.result-icons:hover {
+  transform: scale(1.05);
+}
+
+.result-container .replay {
+  height: 60px;
+  font-size: calc(25px + 0.5vw);
+}
+
+@media screen and (max-width: 650px) {
+  .result-icons {
+    width: calc(125px + 3vw);
+    height: calc(125px + 3vw);
+  }
+}

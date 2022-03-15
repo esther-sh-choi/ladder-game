@@ -42,7 +42,7 @@ const OptionInput = (props) => {
     e.preventDefault();
 
     if (props.numPlayer > resultOptions.length) {
-      console.log("You must type in more than 1 character");
+      // If there is empty section
       return;
     }
 

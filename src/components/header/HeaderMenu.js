@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import bgm from "../bgm/bgm";
+import MusicContext from "../../store/music_play-context";
 
 import styles from "./HeaderMenu.module.css";
 
 const HeaderMenu = (props) => {
-  const [musicOff, setMusicOff] = useState(false);
+  const musicCtx = useContext(MusicContext);
 
   const toggleSoundHandler = () => {
-    setMusicOff((prevState) => !prevState);
-    props.onToggleSound(musicOff);
-    console.log(musicOff);
-    // if (musicOff && bgm.melodicTechnoSound.playing()) {
-    //   pauseBGM();
-    // } else if (!musicOff && !bgm.melodicTechnoSound.playing()) {
-    //   playBGM();
-    // }
+    musicCtx.toggleMusic();
+
+    for (let j = 0; j < 5; j++) {
+      musicCtx.songList[j].stop();
+    }
+  };
+
+  const changeMusicHandler = () => {
+    musicCtx.changeSong();
   };
 
   return (
@@ -26,10 +27,12 @@ const HeaderMenu = (props) => {
           <li>
             Music
             <p className={styles["on-off"]} onClick={toggleSoundHandler}>
-              {musicOff ? "ON" : "OFF"}
+              {musicCtx.musicOff ? "ON" : "OFF"}
             </p>
           </li>
-          <li className={styles.changeMusic}>Change Music</li>
+          <li className={styles.changeMusic} onClick={changeMusicHandler}>
+            Change Music
+          </li>
         </ul>
       </div>
     </div>
