@@ -28,14 +28,20 @@ const OptionInput = (props) => {
     key = e.target.id;
     letter = e.target.name;
 
-    // FIX BUG - When fixing typing, it saves multiple
-    setResultOptions([
-      ...resultOptions,
-      {
-        id: key,
-        [letter]: value,
-      },
-    ]);
+    if (!resultOptions.some((item) => item.id === key)) {
+      // if there is no item in the array with this key, add this new data
+      setResultOptions([...resultOptions, { id: key, [letter]: value }]);
+    } else {
+      const newData = resultOptions.map((item) => {
+        if (item.id === key) {
+          item[letter] = value;
+        }
+        return item;
+      });
+
+      console.log("newData: ", newData);
+      setResultOptions(newData);
+    }
   };
 
   const saveResultOptions = (e) => {

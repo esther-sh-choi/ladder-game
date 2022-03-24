@@ -1,211 +1,131 @@
-export const animatedLine = (
-  ctx,
-  w,
-  h,
-  numPlayer,
-  ladderCtx,
-  optionsCtx,
-  player
-) => {
-  let position_x;
-  let position_y;
-  let current_x;
-  let current_y;
-
-  console.log(player);
-  if (player === "bear") {
-    ctx.strokeStyle = "#f5c000";
-    position_x = 1;
-    current_x = 0;
-  } else if (player === "dog") {
-    ctx.strokeStyle = "#1a81ff";
-    position_x = 3;
-    current_x = 2;
-  } else if (player === "racoon") {
-    ctx.strokeStyle = "#00c281";
-    position_x = 5;
-    current_x = 4;
-  } else if (player === "cat") {
-    ctx.strokeStyle = "#ff5797";
-    position_x = 7;
-    current_x = 6;
-  } else if (player === "fox") {
-    ctx.strokeStyle = "#443dff";
-    position_x = 9;
-    current_x = 8;
-  } else if (player === "panda") {
-    ctx.strokeStyle = "#85ff47";
-    position_x = 11;
-    current_x = 10;
-  }
-
-  console.log(current_x);
-
-  ctx.lineWidth = 7;
-
+export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
   const horizontalUnit = w / (numPlayer * 2);
   const verticalUnit = h / 9;
+  let index;
+  let position_x;
+  let position_y = 0;
 
-  ctx.beginPath();
-  ctx.moveTo(horizontalUnit * position_x, 0);
-  ctx.lineTo(horizontalUnit * position_x, verticalUnit);
-  ctx.stroke();
-
-  position_x = horizontalUnit * position_x;
-  position_y = verticalUnit;
-
-  // make an array and push the path into it. x = [1] and y = []
-
-  let moveX = [];
-  let moveY = [];
-
-  for (let y = 1; y < 9; y++) {
-    current_y = y;
-    if (current_x >= 2 && ladderCtx.ladderArr[current_y][current_x - 1] === 0) {
-      if (
-        current_x < numPlayer * 2 - 2 &&
-        ladderCtx.ladderArr[current_y][current_x + 1] === 0
-      ) {
-        moveX.push(0);
-        moveY.push(current_y);
-      } else if (
-        current_x < numPlayer * 2 - 2 &&
-        ladderCtx.ladderArr[current_y][current_x + 1] === 1
-      ) {
-        current_x += 2;
-
-        moveX.push(2);
-        moveY.push(current_y);
-      } else if (current_x === numPlayer * 2 - 2) {
-        moveX.push(0);
-        moveY.push(current_y);
-      }
-    } else if (
-      current_x >= 2 &&
-      ladderCtx.ladderArr[current_y][current_x - 1] === 1
-    ) {
-      current_x -= 2;
-
-      moveX.push(-2);
-      moveY.push(current_y);
-    } else if (
-      current_x === 0 &&
-      ladderCtx.ladderArr[current_y][current_x + 1] === 0
-    ) {
-      moveX.push(0);
-      moveY.push(current_y);
-    } else if (
-      current_x === 0 &&
-      ladderCtx.ladderArr[current_y][current_x + 1] === 1
-    ) {
-      current_x += 2;
-
-      moveX.push(2);
-      moveY.push(current_y);
-    }
+  if (player === "bear") {
+    ctx.strokeStyle = "#f5c000";
+    position_x = horizontalUnit;
+    index = 0;
+  } else if (player === "dog") {
+    ctx.strokeStyle = "#1a81ff";
+    position_x = horizontalUnit * 3;
+    index = 1;
+  } else if (player === "racoon") {
+    ctx.strokeStyle = "#00c281";
+    position_x = horizontalUnit * 5;
+    index = 2;
+  } else if (player === "cat") {
+    ctx.strokeStyle = "#ff5797";
+    position_x = horizontalUnit * 7;
+    index = 3;
+  } else if (player === "fox") {
+    ctx.strokeStyle = "#443dff";
+    position_x = horizontalUnit * 9;
+    index = 4;
+  } else if (player === "panda") {
+    ctx.strokeStyle = "#85ff47";
+    position_x = horizontalUnit * 11;
+    index = 5;
   }
 
+  const moveX = ladderCtx.pathX[index].slice();
+  moveX.unshift(0);
   console.log(moveX);
-  console.log(moveY);
 
-  for (let i = 0; i < 9; i++) {
+  ctx.lineWidth = 7.5;
+
+  let vertices = [];
+
+  vertices.push({ x: position_x, y: position_y });
+  for (let i = 0; i < 10; i++) {
     if (moveX[i] === 0) {
-      ctx.beginPath();
-      ctx.moveTo(position_x, position_y);
-      ctx.lineTo(position_x, position_y + verticalUnit);
-      ctx.stroke();
+      // move down one unit
+
       position_y += verticalUnit;
+      vertices.push({ x: position_x, y: position_y });
     } else if (moveX[i] === 2) {
-      ctx.beginPath();
-      ctx.moveTo(position_x, position_y);
-      ctx.lineTo(position_x + horizontalUnit * 2, position_y);
+      // move right 2 units and down 1 unit
       position_x += horizontalUnit * 2;
-      ctx.lineTo(position_x, position_y + verticalUnit);
-      ctx.stroke();
+      vertices.push({ x: position_x, y: position_y });
       position_y += verticalUnit;
+      vertices.push({ x: position_x, y: position_y });
     } else if (moveX[i] === -2) {
-      ctx.beginPath();
-      ctx.moveTo(position_x, position_y);
-      ctx.lineTo(position_x - horizontalUnit * 2, position_y);
+      // move left 2 units and down 1 unit
+
       position_x -= horizontalUnit * 2;
-      ctx.lineTo(position_x, position_y + verticalUnit);
-      ctx.stroke();
+      vertices.push({ x: position_x, y: position_y });
       position_y += verticalUnit;
+      vertices.push({ x: position_x, y: position_y });
     }
   }
 
-  const resultPosition = moveX.reduce((acc, current) => acc + current, 0);
-  let results = [];
+  console.log(vertices);
+  const calcWaypoints = (vertices) => {
+    let waypoints = [];
+    for (let i = 1; i < vertices.length; i++) {
+      const pt0 = vertices[i - 1];
+      const pt1 = vertices[i];
+      const dx = pt1.x - pt0.x;
+      const dy = pt1.y - pt0.y;
 
-  if (resultPosition === 0) {
-    results.push({ [player]: "A" });
-  } else if (resultPosition === 2) {
-    results.push({ [player]: "B" });
-  } else if (resultPosition === 4) {
-    results.push({ [player]: "C" });
-  } else if (resultPosition === 6) {
-    results.push({ [player]: "D" });
-  } else if (resultPosition === 8) {
-    results.push({ [player]: "E" });
-  } else if (resultPosition === 10) {
-    results.push({ [player]: "F" });
-  }
+      for (let j = 0; j < 20; j++) {
+        const x = pt0.x + dx * (j / 20);
+        const y = pt0.y + dy * (j / 20);
+        waypoints.push({ x: x, y: y });
+      }
+    }
+    return waypoints;
+  };
 
-  optionsCtx.saveResults(results);
+  // calculate incremental points
+  const points = calcWaypoints(vertices);
 
-  // const resultPositions = [
-  //   Math.floor(horizontalUnit * 1),
-  //   Math.floor(horizontalUnit * 3),
-  //   Math.floor(horizontalUnit * 5),
-  //   Math.floor(horizontalUnit * 7),
-  //   Math.floor(horizontalUnit * 9),
-  //   Math.floor(horizontalUnit * 11),
-  // ];
+  // variable for how many frames elapsed in the animation
+  // t represents each waypoint along the path
+  let t = 1;
 
-  // console.log(Math.round(horizontalUnit * 3));
+  const animate = () => {
+    if (t < points.length - 1) {
+      requestAnimationFrame(animate);
+    }
 
-  // const resultAlphabet = ["A", "B", "C", "D", "E", "F"];
-  // let result = {
-  //   bear: "",
-  //   dog: "",
-  //   racoon: "",
-  //   cat: "",
-  //   fox: "",
-  //   panda: "",
-  // };
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
 
-  // if (player === "bear") {
-  //   const bearResultPosition = Math.floor(position_x);
-  //   console.log(Math.floor(position_x));
-  //   const bearResult =
-  //     resultAlphabet[resultPositions.indexOf(bearResultPosition)];
-  //   result.bear = bearResult;
-  // } else if (player === "dog") {
-  //   const dogResultPosition = Math.floor(position_x);
-  //   console.log(Math.floor(position_x));
-  //   const dogResult =
-  //     resultAlphabet[resultPositions.indexOf(dogResultPosition)];
-  //   result.dog = dogResult;
-  // } else if (player === "racoon") {
-  //   const racoonResultPosition = Math.floor(position_x);
-  //   console.log(Math.floor(position_x));
-  //   const racoonResult =
-  //     resultAlphabet[resultPositions.indexOf(racoonResultPosition)];
-  //   result.racoon = racoonResult;
-  // } else if (player === "cat") {
-  //   const catResultPosition = Math.floor(position_x);
-  //   const catResult =
-  //     resultAlphabet[resultPositions.indexOf(catResultPosition)];
-  //   result.cat = catResult;
-  // } else if (player === "fox") {
-  //   const foxResultPosition = Math.round(position_x);
-  //   const foxResult =
-  //     resultAlphabet[resultPositions.indexOf(foxResultPosition)];
-  //   result.fox = foxResult;
-  // } else if (player === "panda") {
-  //   const pandaResultPosition = Math.floor(position_x);
-  //   const pandaResult =
-  //     resultAlphabet[resultPositions.indexOf(pandaResultPosition)];
-  //   result.panda = pandaResult;
-  // }
+    t++;
+  };
+
+  animate();
 };
+
+// ctx.beginPath();
+//   for (let i = 0; i < 10; i++) {
+//     if (moveX[i] === 0) {
+//       // move down one unit
+//       ctx.moveTo(position_x, position_y);
+//       position_y += verticalUnit;
+//       ctx.lineTo(position_x, position_y);
+//     } else if (moveX[i] === 2) {
+//       // move right 2 units and down 1 unit
+
+//       ctx.moveTo(position_x, position_y);
+//       position_x += horizontalUnit * 2;
+//       ctx.lineTo(position_x, position_y);
+//       position_y += verticalUnit;
+//       ctx.lineTo(position_x, position_y);
+//     } else if (moveX[i] === -2) {
+//       // move left 2 units and down 1 unit
+
+//       ctx.moveTo(position_x, position_y);
+//       position_x -= horizontalUnit * 2;
+//       ctx.lineTo(position_x, position_y);
+//       position_y += verticalUnit;
+//       ctx.lineTo(position_x, position_y);
+//     }
+//   }
+//   ctx.stroke();

@@ -16,6 +16,7 @@ const MainPage = () => {
 
   const [optionChosen, setOptionChosen] = useState("");
   const [letterChosen, setLetterChosen] = useState("");
+  const [playerNameList, setPlayerNameList] = useState([]);
   const [showResultModal, setShowResultModal] = useState(false);
   const [player, setPlayer] = useState("");
 
@@ -37,10 +38,15 @@ const MainPage = () => {
 
   const saveChosenPlayerHandler = (playerName) => {
     setPlayer(playerName);
+    setPlayerNameList((prev) => [...new Set([...prev, playerName])]);
   };
 
   const displayResultsHandler = () => {
-    history.push("/result");
+    if (playerNameList.length === optionsCtx.options.length) {
+      history.push("/result");
+    } else {
+      return;
+    }
   };
 
   return (

@@ -12,7 +12,7 @@ export const OptionsContextProvider = (props) => {
   };
 
   const saveResultsHandler = (results) => {
-    setResults((prev) => [...prev, results]);
+    setResults((prev) => prev.concat(results));
   };
 
   const context = {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import Instruction from "../UI/Instruction";
 import GetPlayerNum from "./GetPlayerNum";

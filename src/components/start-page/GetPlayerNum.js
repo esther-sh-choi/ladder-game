@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import LadderContext from "../../store/ladder-context";
 
 import Button from "../UI/Button";
 
@@ -7,6 +8,7 @@ import styles from "./GetPlayerNum.module.css";
 
 const GetPlayerNum = (props) => {
   const playerNumRef = useRef();
+  const ladderCtx = useContext(LadderContext);
 
   const history = useHistory();
 
@@ -18,6 +20,7 @@ const GetPlayerNum = (props) => {
       return;
     }
     props.onGetPlayerNum(playerNum);
+    ladderCtx.generateLadder(playerNum);
 
     history.push("/option");
   };

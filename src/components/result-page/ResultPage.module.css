@@ -22,7 +22,7 @@
   width: calc(150px + 3vw);
   height: calc(150px + 3vw);
 
-  margin: calc(10px + 2vw);
+  margin: 0 calc(10px + 2vw);
   align-self: center;
 
   cursor: pointer;
@@ -43,5 +43,26 @@
   .result-icons {
     width: calc(125px + 3vw);
     height: calc(125px + 3vw);
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .result-icons {
+    width: calc(125px + 3vh);
+    height: calc(125px + 3vh);
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .result-icons {
+    width: calc(115px + 3vh);
+    height: calc(115px + 3vh);
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .result-icons {
+    width: calc(100px + 3vh);
+    height: calc(100px + 3vh);
   }
 }

@@ -17,8 +17,6 @@ export const MusicContextProvider = (props) => {
   ];
 
   const playBGMHandler = () => {
-    console.log(chosenSong);
-
     songList[chosenSong].play();
   };
 
@@ -49,9 +47,8 @@ export const MusicContextProvider = (props) => {
       songList[chosenSong].stop();
     } else if (musicOff === false) {
       songList[chosenSong].play();
-      console.log(chosenSong);
     }
-  }, [musicOff, chosenSong]);
+  }, [musicOff, chosenSong, songList]);
 
   const context = {
     currentSong: chosenSong,
