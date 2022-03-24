@@ -4,7 +4,6 @@ import { animatedLine } from "./animatedLine";
 
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
-import ladderAlgorithm from "./ladderAlgorithm";
 import styles from "./Ladder.module.css";
 
 const Ladder = (props) => {
@@ -13,25 +12,7 @@ const Ladder = (props) => {
 
   const ladderCtx = useContext(LadderContext);
 
-  useEffect(() => {
-    if (numPlayer === 2) {
-      const ladderLayout = ladderAlgorithm.ladderTwo;
-      ladderCtx.generateLadderTwo(ladderLayout);
-    } else if (numPlayer === 3) {
-      const ladderLayout = ladderAlgorithm.ladderThree;
-      ladderCtx.generateLadderThree(ladderLayout);
-    } else if (numPlayer === 4) {
-      const ladderLayout = ladderAlgorithm.ladderFour;
-      ladderCtx.generateLadderFour(ladderLayout);
-    } else if (numPlayer === 5) {
-      const ladderLayout = ladderAlgorithm.ladderFive;
-      ladderCtx.generateLadderFive(ladderLayout);
-    } else if (numPlayer === 6) {
-      console.log(ladderAlgorithm.ladderSix);
-      const ladderLayout = ladderAlgorithm.ladderSix;
-      ladderCtx.generateLadderSix(ladderLayout);
-    }
-  }, [numPlayer]);
+  console.log(ladderCtx.ladderArr);
 
   const containerSizeRef = useRef();
 
@@ -43,18 +24,15 @@ const Ladder = (props) => {
     setWidth(newWidth);
 
     const newHeight = containerSizeRef.current.clientHeight;
-
-    const ratio = newWidth / newHeight;
-
-    setHeight(newWidth / ratio);
+    setHeight(newHeight);
   };
 
   useEffect(() => {
     getContainerSize();
-  }, []);
-
-  useEffect(() => {
     window.addEventListener("resize", getContainerSize);
+    return () => {
+      window.removeEventListener("resize", getContainerSize);
+    };
   }, []);
 
   console.log(width);
@@ -62,7 +40,7 @@ const Ladder = (props) => {
 
   const canvasRef = useRef(null);
 
-  const drawVertical = (ctx, w, h) => {
+  const drawLadder = (ctx, w, h) => {
     ctx.lineWidth = 6;
     ctx.strokeStyle = "white";
     ctx.lineCap = "round";
@@ -75,24 +53,22 @@ const Ladder = (props) => {
       ctx.lineTo(divWidthEqually * (2 * i + 1), h);
       ctx.stroke();
     }
-  };
 
-  const drawHorizontal = (ctx, w, h) => {
-    ctx.lineWidth = 6;
-    ctx.strokeStyle = "white";
-
+    //draw horizontal
     const lengthHorizontal = w / numPlayer;
     const position_x = w / (numPlayer * 2);
     const position_y = h / 9;
 
-    for (let i = 1; i < 9; i++) {
-      for (let j = 1; j <= numPlayer * 2 - 3; j = j + 2)
-        if (ladderCtx.ladderArr[i][j] === 1) {
-          ctx.beginPath();
-          ctx.moveTo(position_x * j, position_y * i);
-          ctx.lineTo(position_x * j + lengthHorizontal, position_y * i);
-          ctx.stroke();
-        }
+    if (ladderCtx.ladderArr.length > 0) {
+      for (let i = 1; i < 9; i++) {
+        for (let j = 1; j <= numPlayer * 2 - 3; j = j + 2)
+          if (ladderCtx.ladderArr[i][j] === 1) {
+            ctx.beginPath();
+            ctx.moveTo(position_x * j, position_y * i);
+            ctx.lineTo(position_x * j + lengthHorizontal, position_y * i);
+            ctx.stroke();
+          }
+      }
     }
   };
 
@@ -100,28 +76,17 @@ const Ladder = (props) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    drawVertical(context, width, height);
-    if (ladderCtx.ladderArr.length > 0) {
-      drawHorizontal(context, width, height);
-    }
+    drawLadder(context, width, height);
   });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     if (props.player) {
-      animatedLine(
-        context,
-        width,
-        height,
-        numPlayer,
-        ladderCtx,
-        optionsCtx,
-        props.player
-      );
+      animatedLine(context, width, height, numPlayer, ladderCtx, props.player);
     }
     // console.log(optionsCtx.results);
-  }, [optionsCtx, props.player]);
+  }, [props.player]);
 
   return (
     <div className={styles["ladder-container"]} ref={containerSizeRef}>

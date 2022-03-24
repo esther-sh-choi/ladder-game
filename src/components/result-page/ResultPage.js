@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import styles from "./ResultPage.module.css";
 
 import OptionsContext from "../../store/options-context";
+import LadderContext from "../../store/ladder-context";
 import Button from "../UI/Button";
 import ResultModal from "../UI/ResultModal";
 
@@ -17,10 +18,12 @@ import panda from "../../images/player6-panda.png";
 const ResultPage = (props) => {
   const history = useHistory();
   const [openModal, setOpenModal] = useState(false);
+  const [letterChosen, setLetterChosen] = useState("");
+  const [animalChoice, setAnimalChoice] = useState("");
+  const [result, setResult] = useState({});
 
   const optionsCtx = useContext(OptionsContext);
-
-  console.log(optionsCtx.options.length);
+  const ladderCtx = useContext(LadderContext);
 
   const icons = [];
   const iconsStr = [];
@@ -33,13 +36,59 @@ const ResultPage = (props) => {
     iconsStr.push(animalStringList[i]);
   }
 
-  console.log(icons);
-  console.log(iconsStr);
-
   const clickPlayerResultHandler = (e) => {
     e.preventDefault();
 
     setOpenModal(true);
+
+    setResultHandler(e.target.id);
+  };
+
+  const setResultHandler = (animalChoice) => {
+    setAnimalChoice(animalChoice);
+    if (animalChoice === "bear") {
+      setLetterChosen(ladderCtx.resultLetters[0]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[0])
+        )[0]
+      );
+    } else if (animalChoice === "dog") {
+      setLetterChosen(ladderCtx.resultLetters[1]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[1])
+        )[0]
+      );
+    } else if (animalChoice === "racoon") {
+      setLetterChosen(ladderCtx.resultLetters[2]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[2])
+        )[0]
+      );
+    } else if (animalChoice === "cat") {
+      setLetterChosen(ladderCtx.resultLetters[3]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[3])
+        )[0]
+      );
+    } else if (animalChoice === "fox") {
+      setLetterChosen(ladderCtx.resultLetters[4]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[4])
+        )[0]
+      );
+    } else if (animalChoice === "panda") {
+      setLetterChosen(ladderCtx.resultLetters[5]);
+      setResult(
+        optionsCtx.options.filter((option) =>
+          Object.keys(option).includes(ladderCtx.resultLetters[5])
+        )[0]
+      );
+    }
   };
 
   const closeModalHandler = () => {
@@ -76,7 +125,14 @@ const ResultPage = (props) => {
         </Button>
       </div>
       {openModal && (
-        <ResultModal onModalClose={closeModalHandler}></ResultModal>
+        <ResultModal
+          onModalClose={closeModalHandler}
+          letterChosen={letterChosen}
+          animalChoice={animalChoice}
+          onModalClose={closeModalHandler}
+        >
+          {result[letterChosen]}
+        </ResultModal>
       )}
     </Fragment>
   );

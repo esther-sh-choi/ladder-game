@@ -8,8 +8,6 @@ import OptionPage from "./components/option-page/OptionPage";
 import MainPage from "./components/main-page/MainPage";
 import ResultPage from "./components/result-page/ResultPage";
 
-import { LadderContextProvider } from "./store/ladder-context";
-
 function App() {
   const [numPlayer, setNumPlayer] = useState("");
   const [musicOff, setMusicOff] = useState(false);
@@ -45,9 +43,7 @@ function App() {
             </Route>
           )}
           <Route path="/main_game">
-            <LadderContextProvider>
-              <MainPage />
-            </LadderContextProvider>
+            <MainPage />
           </Route>
           <Route path="/result">
             <ResultPage />

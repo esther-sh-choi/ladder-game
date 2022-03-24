@@ -24,9 +24,6 @@ const PlayerIcon = (props) => {
     iconsStr.push(animalStringList[i]);
   }
 
-  console.log(icons);
-  console.log(iconsStr);
-
   const clickPlayerHandler = (e) => {
     e.preventDefault();
     props.chosenPlayer(e.target.id);
