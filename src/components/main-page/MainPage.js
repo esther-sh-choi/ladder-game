@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import PlayerIcon from "./PlayerIcon";
 import Ladder from "./Ladder";
 import ResultButtons from "./ResultButtons";
 import ResultModal from "../UI/ResultModal";
@@ -16,9 +15,7 @@ const MainPage = () => {
 
   const [optionChosen, setOptionChosen] = useState("");
   const [letterChosen, setLetterChosen] = useState("");
-  const [playerNameList, setPlayerNameList] = useState([]);
   const [showResultModal, setShowResultModal] = useState(false);
-  const [player, setPlayer] = useState("");
 
   console.log(optionsCtx.options);
 
@@ -36,25 +33,15 @@ const MainPage = () => {
     setShowResultModal(false);
   };
 
-  const saveChosenPlayerHandler = (playerName) => {
-    setPlayer(playerName);
-    setPlayerNameList((prev) => [...new Set([...prev, playerName])]);
-  };
-
   const displayResultsHandler = () => {
-    if (playerNameList.length === optionsCtx.options.length) {
-      history.push("/result");
-    } else {
-      return;
-    }
+    history.push("/result");
   };
 
   return (
     <Fragment>
       <div className={styles["main-page"]}>
-        <PlayerIcon chosenPlayer={saveChosenPlayerHandler} />
         <div className={styles["vertical-ladder"]}>
-          <Ladder player={player} />
+          <Ladder />
         </div>
         <ResultButtons onGetChosenResult={showResultModalHandler} />
         <footer className={styles.main}>

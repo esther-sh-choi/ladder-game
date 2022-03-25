@@ -6,27 +6,21 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
   let position_y = 0;
 
   if (player === "bear") {
-    ctx.strokeStyle = "#f5c000";
     position_x = horizontalUnit;
     index = 0;
   } else if (player === "dog") {
-    ctx.strokeStyle = "#1a81ff";
     position_x = horizontalUnit * 3;
     index = 1;
   } else if (player === "racoon") {
-    ctx.strokeStyle = "#00c281";
     position_x = horizontalUnit * 5;
     index = 2;
   } else if (player === "cat") {
-    ctx.strokeStyle = "#ff5797";
     position_x = horizontalUnit * 7;
     index = 3;
   } else if (player === "fox") {
-    ctx.strokeStyle = "#443dff";
     position_x = horizontalUnit * 9;
     index = 4;
   } else if (player === "panda") {
-    ctx.strokeStyle = "#85ff47";
     position_x = horizontalUnit * 11;
     index = 5;
   }
@@ -71,9 +65,9 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
       const dx = pt1.x - pt0.x;
       const dy = pt1.y - pt0.y;
 
-      for (let j = 0; j < 20; j++) {
-        const x = pt0.x + dx * (j / 20);
-        const y = pt0.y + dy * (j / 20);
+      for (let j = 0; j < 15; j++) {
+        const x = pt0.x + dx * (j / 15);
+        const y = pt0.y + dy * (j / 15);
         waypoints.push({ x: x, y: y });
       }
     }
@@ -87,9 +81,33 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
   // t represents each waypoint along the path
   let t = 1;
 
-  const animate = () => {
+  const animateBear = () => {
+    ctx.strokeStyle = "#f5c000";
+
     if (t < points.length - 1) {
-      requestAnimationFrame(animate);
+      requestAnimationFrame(animateBear);
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
+
+    t++;
+
+    // if (
+    //   points[t].x === vertices[vertices.length - 1].x &&
+    //   points[t].y === vertices[vertices.length - 1].y
+    // ) {
+    //   done = true;
+    // }
+  };
+
+  const animateDog = () => {
+    ctx.strokeStyle = "#1a81ff";
+
+    if (t < points.length - 1) {
+      requestAnimationFrame(animateDog);
     }
 
     ctx.beginPath();
@@ -100,7 +118,79 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
     t++;
   };
 
-  animate();
+  const animateRacoon = () => {
+    ctx.strokeStyle = "#00c281";
+
+    if (t < points.length - 1) {
+      requestAnimationFrame(animateRacoon);
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
+
+    t++;
+  };
+
+  const animateCat = () => {
+    ctx.strokeStyle = "#ff5797";
+
+    if (t < points.length - 1) {
+      requestAnimationFrame(animateCat);
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
+
+    t++;
+  };
+
+  const animateFox = () => {
+    ctx.strokeStyle = "#443dff";
+
+    if (t < points.length - 1) {
+      requestAnimationFrame(animateFox);
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
+
+    t++;
+  };
+
+  const animatePanda = () => {
+    ctx.strokeStyle = "#85ff47";
+
+    if (t < points.length - 1) {
+      requestAnimationFrame(animatePanda);
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(points[t - 1].x, points[t - 1].y);
+    ctx.lineTo(points[t].x, points[t].y);
+    ctx.stroke();
+
+    t++;
+  };
+
+  if (player === "bear") {
+    animateBear();
+  } else if (player === "dog") {
+    animateDog();
+  } else if (player === "racoon") {
+    animateRacoon();
+  } else if (player === "cat") {
+    animateCat();
+  } else if (player === "fox") {
+    animateFox();
+  } else if (player === "panda") {
+    animatePanda();
+  }
 };
 
 // ctx.beginPath();
