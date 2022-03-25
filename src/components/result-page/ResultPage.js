@@ -7,6 +7,7 @@ import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
 import Button from "../UI/Button";
 import ResultModal from "../UI/ResultModal";
+import Instruction from "../UI/Instruction";
 
 import bear from "../../images/player1-bear.png";
 import dog from "../../images/player2-dog.png";
@@ -98,6 +99,7 @@ const ResultPage = (props) => {
   return (
     <Fragment>
       <div className={styles["result-container"]}>
+        <Instruction>Results</Instruction>
         <div className={styles["icons-container"]}>
           {icons.map((icon, i) => (
             <img

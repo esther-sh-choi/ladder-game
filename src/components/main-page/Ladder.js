@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 
 import { animatedLine } from "./animatedLine";
 
+import PlayerIcon from "./PlayerIcon";
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
 import styles from "./Ladder.module.css";
@@ -20,11 +21,19 @@ const Ladder = (props) => {
   const [height, setHeight] = useState();
 
   const getContainerSize = () => {
-    const newWidth = containerSizeRef.current.clientWidth;
-    setWidth(newWidth);
-
     const newHeight = containerSizeRef.current.clientHeight;
     setHeight(newHeight);
+    const newWidth = containerSizeRef.current.clientWidth;
+    setWidth(newWidth);
+  };
+
+  const playerSelectHandler = (chosenPlayer) => {
+    console.log(chosenPlayer);
+
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    animatedLine(context, width, height, numPlayer, ladderCtx, chosenPlayer);
   };
 
   useEffect(() => {
@@ -79,24 +88,18 @@ const Ladder = (props) => {
     drawLadder(context, width, height);
   });
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    if (props.player) {
-      animatedLine(context, width, height, numPlayer, ladderCtx, props.player);
-    }
-    // console.log(optionsCtx.results);
-  }, [props.player]);
-
   return (
-    <div className={styles["ladder-container"]} ref={containerSizeRef}>
-      <canvas
-        className={styles.canvas}
-        width={width}
-        height={height}
-        ref={canvasRef}
-        {...props}
-      ></canvas>
+    <div className={styles["player-ladder"]}>
+      <PlayerIcon chosenPlayer={playerSelectHandler} />
+      <div className={styles["ladder-container"]} ref={containerSizeRef}>
+        <canvas
+          className={styles.canvas}
+          height={height}
+          width={width}
+          ref={canvasRef}
+          {...props}
+        ></canvas>
+      </div>
     </div>
   );
 };
