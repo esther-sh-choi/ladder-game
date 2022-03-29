@@ -22,30 +22,6 @@ This project is currently in development. Users can filter tweets by username an
 ![Hnet-image-3](https://user-images.githubusercontent.com/100092097/160527606-0a4aca90-ccc2-404a-8ba0-bee8747d71e8.gif)
 ![Hnet-image-5](https://user-images.githubusercontent.com/100092097/160527631-71d42e63-5ba4-4dd5-93da-864edf7c2f4c.gif)
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
-
-## Installation and Setup Instructions
-
-#### Example:
-
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.
-
-Installation:
-
-`npm install`
-
-To Run Test Suite:
-
-`npm test`
-
-To Start Server:
-
-`npm start`
-
-To Visit App:
-
-`localhost:3000/ideas`
-
 ## Reflection
 
 - What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
