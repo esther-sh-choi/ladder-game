@@ -2,7 +2,7 @@
 
 #### Ladder Game
 
-An application used to filter data form Twitter based on user preference, built with React, Redux, JavaScript, and CSS.
+A game for 2-6 players that randomly matches the players with an input value takes in an input based on the number of players. It consists of ladder algorithm that assigns the input values to the player randomly. It is often used to set prizes, built with React, JavaScript, and CSS.
 
 ## Project Status
 
