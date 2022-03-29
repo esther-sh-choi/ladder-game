@@ -28,7 +28,7 @@ const ResultButtons = (props) => {
   };
 
   return (
-    <div className={`${styles["result-btn-container"]}`}>
+    <div className={styles["result-btn-container"]}>
       {alphBtns.map((letter, i) => (
         <button
           key={i}
