@@ -5,9 +5,9 @@ import styles from "./ResultPage.module.css";
 
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
-import Button from "../UI/Button";
-import ResultModal from "../UI/ResultModal";
-import Instruction from "../UI/Instruction";
+import Button from "../../components/UI/Button";
+import ResultModal from "../../components/UI/ResultModal";
+import Instruction from "../../components/UI/Instruction";
 
 import bear from "../../images/player1-bear.png";
 import dog from "../../images/player2-dog.png";
@@ -131,7 +131,6 @@ const ResultPage = (props) => {
           onModalClose={closeModalHandler}
           letterChosen={letterChosen}
           animalChoice={animalChoice}
-          onModalClose={closeModalHandler}
         >
           {result[letterChosen]}
         </ResultModal>

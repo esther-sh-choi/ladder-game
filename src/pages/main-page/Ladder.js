@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { animatedLine } from "./animatedLine";
 
 import PlayerIcon from "./PlayerIcon";
+import ResultButtons from "./ResultButtons";
+import ResultPopup from "./ResultPopup";
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
 import styles from "./Ladder.module.css";
@@ -33,7 +35,15 @@ const Ladder = (props) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    animatedLine(context, width, height, numPlayer, ladderCtx, chosenPlayer);
+    animatedLine(
+      context,
+      width,
+      height,
+      numPlayer,
+      ladderCtx,
+      chosenPlayer,
+      optionsCtx
+    );
   };
 
   useEffect(() => {
@@ -88,19 +98,41 @@ const Ladder = (props) => {
     drawLadder(context, width, height);
   });
 
+  // const [optionChosen, setOptionChosen] = useState("");
+  // const [letterChosen, setLetterChosen] = useState("");
+  // const [showResultModal, setShowResultModal] = useState(false);
+
+  // const showResultModalHandler = (letter) => {
+  //   setOptionChosen(
+  //     ...optionsCtx.options.filter((option) =>
+  //       Object.keys(option).includes(letter)
+  //     )
+  //   );
+  //   setShowResultModal(true);
+  //   setLetterChosen(letter);
+  // };
+
+  // const closeModalHandler = () => {
+  //   setShowResultModal(false);
+  // };
+
   return (
-    <div className={styles["player-ladder"]}>
-      <PlayerIcon chosenPlayer={playerSelectHandler} />
-      <div className={styles["ladder-container"]} ref={containerSizeRef}>
-        <canvas
-          className={styles.canvas}
-          height={height}
-          width={width}
-          ref={canvasRef}
-          {...props}
-        ></canvas>
+    <React.Fragment>
+      <div className={styles["player-ladder"]}>
+        <PlayerIcon chosenPlayer={playerSelectHandler} />
+        <div className={styles["ladder-container"]} ref={containerSizeRef}>
+          <canvas
+            className={styles.canvas}
+            height={height}
+            width={width}
+            ref={canvasRef}
+            {...props}
+          ></canvas>
+        </div>
+        <ResultButtons />
       </div>
-    </div>
+      <ResultPopup />
+    </React.Fragment>
   );
 };
 

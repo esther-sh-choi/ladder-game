@@ -1,4 +1,12 @@
-export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
+export const animatedLine = (
+  ctx,
+  w,
+  h,
+  numPlayer,
+  ladderCtx,
+  player,
+  optionsCtx
+) => {
   const horizontalUnit = w / (numPlayer * 2);
   const verticalUnit = h / 9;
   let index;
@@ -84,90 +92,68 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
   const animateBear = () => {
     ctx.strokeStyle = "#f5c000";
 
-    if (t < points.length - 1) {
-      requestAnimationFrame(animateBear);
-    }
+    animationLine(animateBear);
 
-    ctx.beginPath();
-    ctx.moveTo(points[t - 1].x, points[t - 1].y);
-    ctx.lineTo(points[t].x, points[t].y);
-    ctx.stroke();
-
-    t++;
-
-    // if (
-    //   points[t].x === vertices[vertices.length - 1].x &&
-    //   points[t].y === vertices[vertices.length - 1].y
-    // ) {
-    //   done = true;
-    // }
+    popupAnimation();
   };
 
   const animateDog = () => {
     ctx.strokeStyle = "#1a81ff";
 
-    if (t < points.length - 1) {
-      requestAnimationFrame(animateDog);
-    }
+    animationLine(animateDog);
 
-    ctx.beginPath();
-    ctx.moveTo(points[t - 1].x, points[t - 1].y);
-    ctx.lineTo(points[t].x, points[t].y);
-    ctx.stroke();
-
-    t++;
+    popupAnimation();
   };
 
   const animateRacoon = () => {
     ctx.strokeStyle = "#00c281";
 
-    if (t < points.length - 1) {
-      requestAnimationFrame(animateRacoon);
-    }
+    animationLine(animateRacoon);
 
-    ctx.beginPath();
-    ctx.moveTo(points[t - 1].x, points[t - 1].y);
-    ctx.lineTo(points[t].x, points[t].y);
-    ctx.stroke();
-
-    t++;
+    popupAnimation();
   };
 
   const animateCat = () => {
     ctx.strokeStyle = "#ff5797";
 
-    if (t < points.length - 1) {
-      requestAnimationFrame(animateCat);
-    }
+    animationLine(animateCat);
 
-    ctx.beginPath();
-    ctx.moveTo(points[t - 1].x, points[t - 1].y);
-    ctx.lineTo(points[t].x, points[t].y);
-    ctx.stroke();
-
-    t++;
+    popupAnimation();
   };
 
   const animateFox = () => {
     ctx.strokeStyle = "#443dff";
 
-    if (t < points.length - 1) {
-      requestAnimationFrame(animateFox);
-    }
+    animationLine(animatePanda);
 
-    ctx.beginPath();
-    ctx.moveTo(points[t - 1].x, points[t - 1].y);
-    ctx.lineTo(points[t].x, points[t].y);
-    ctx.stroke();
-
-    t++;
+    popupAnimation();
   };
 
   const animatePanda = () => {
     ctx.strokeStyle = "#85ff47";
 
+    animationLine(animatePanda);
+
+    popupAnimation();
+  };
+
+  function popupAnimation() {
+    const resultObj = optionsCtx.options.filter((option) =>
+      Object.keys(option).includes(ladderCtx.resultLetters[index])
+    )[0];
+    const result = resultObj[ladderCtx.resultLetters[index]];
+    if (t === points.length - 1) {
+      document.getElementById("popup").classList.remove("hide");
+      document.getElementById("popup-content").innerHTML = result;
+      setTimeout(() => {
+        document.getElementById("popup").classList.add("hide");
+      }, 5000);
+    }
+  }
+
+  function animationLine(animatePlayer) {
     if (t < points.length - 1) {
-      requestAnimationFrame(animatePanda);
+      requestAnimationFrame(animatePlayer);
     }
 
     ctx.beginPath();
@@ -176,7 +162,7 @@ export const animatedLine = (ctx, w, h, numPlayer, ladderCtx, player) => {
     ctx.stroke();
 
     t++;
-  };
+  }
 
   if (player === "bear") {
     animateBear();

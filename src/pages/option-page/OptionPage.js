@@ -1,6 +1,6 @@
 import React from "react";
 
-import Instruction from "../UI/Instruction";
+import Instruction from "../../components/UI/Instruction";
 import OptionInput from "./OptionInput";
 
 import styles from "./OptionPage.module.css";
