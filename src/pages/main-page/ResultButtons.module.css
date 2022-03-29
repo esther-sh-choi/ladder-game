@@ -1,25 +1,6 @@
 .result-btn-container {
-  display: grid;
-}
-
-.result-btn-container.two {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.result-btn-container.three {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.result-btn-container.four {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.result-btn-container.five {
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.result-btn-container.six {
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  justify-content: space-around;
 }
 
 .resultBtns {
