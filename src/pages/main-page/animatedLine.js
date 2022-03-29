@@ -124,7 +124,7 @@ export const animatedLine = (
   const animateFox = () => {
     ctx.strokeStyle = "#443dff";
 
-    animationLine(animatePanda);
+    animationLine(animateFox);
 
     popupAnimation();
   };
