@@ -1,5 +1,5 @@
 .result-btn-container {
-  display: flex;
+  display: flex !important;
   justify-content: space-around;
 }
 
@@ -16,7 +16,7 @@
     #f6c100;
   box-shadow: 4px 15px 62px rgba(0, 0, 0, 0.5);
 
-  display: flex !important;
+  display: flex;
   justify-content: center;
   align-items: center;
 
