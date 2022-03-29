@@ -1,6 +1,6 @@
 .result-btn-container {
   display: flex !important;
-  justify-content: space-around;
+  justify-content: space-around !important;
 }
 
 .resultBtns {
