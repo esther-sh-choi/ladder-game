@@ -15,9 +15,16 @@ const ResultButtons = (props) => {
   }
 
   const chooseResultHandler = (e) => {
-    e.preventDefault();
+    const resultObj = optionsCtx.options.filter((option) =>
+      Object.keys(option).includes(e.target.value)
+    )[0];
+    const result = resultObj[e.target.value];
 
-    props.onGetChosenResult(e.target.value);
+    document.getElementById("popup").classList.remove("hide");
+    document.getElementById("popup-content").innerHTML = result;
+    setTimeout(() => {
+      document.getElementById("popup").classList.add("hide");
+    }, 5000);
   };
 
   return (

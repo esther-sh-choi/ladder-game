@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import Header from "./components/header/Header";
-import StartPage from "./components/start-page/StartPage";
-import OptionPage from "./components/option-page/OptionPage";
-import MainPage from "./components/main-page/MainPage";
-import ResultPage from "./components/result-page/ResultPage";
+import StartPage from "./pages/start-page/StartPage";
+import OptionPage from "./pages/option-page/OptionPage";
+import MainPage from "./pages/main-page/MainPage";
+import ResultPage from "./pages/result-page/ResultPage";
 
 function App() {
   const [numPlayer, setNumPlayer] = useState("");

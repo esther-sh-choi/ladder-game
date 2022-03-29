@@ -1,0 +1,49 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+/* .modalContainer {
+    display: flex;
+    justify-content: center;
+  } */
+
+.popup {
+  position: fixed;
+  top: calc(50% - (100px + 15vh) / 2);
+  left: calc(50% - (150px + 30vw) / 2);
+
+  display: flex;
+  flex-direction: column;
+
+  width: calc(150px + 30vw);
+  height: calc(100px + 15vh);
+
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+
+  font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+
+  z-index: 100;
+  overflow: hidden;
+}
+
+.popup .popup-content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.popup-content p {
+  font-size: calc(20px + 0.5vw);
+}

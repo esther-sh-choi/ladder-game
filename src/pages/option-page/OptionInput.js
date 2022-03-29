@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import Button from "../UI/Button";
+import Button from "../../components/UI/Button";
 import OptionsContext from "../../store/options-context";
 
 import styles from "./OptionInput.module.css";

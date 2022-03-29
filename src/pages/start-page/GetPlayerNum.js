@@ -2,7 +2,7 @@ import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import LadderContext from "../../store/ladder-context";
 
-import Button from "../UI/Button";
+import Button from "../../components/UI/Button";
 
 import styles from "./GetPlayerNum.module.css";
 
