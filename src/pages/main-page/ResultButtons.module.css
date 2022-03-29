@@ -4,8 +4,6 @@
 }
 
 .resultBtns {
-  justify-self: center;
-
   height: calc(70px + 0.1vw);
   width: calc(70px + 0.1vw);
   border-radius: 50%;
