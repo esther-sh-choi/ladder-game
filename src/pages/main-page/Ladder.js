@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { animatedLine } from "./animatedLine";
 
 import PlayerIcon from "./PlayerIcon";
-import ResultButtons from "./ResultButtons";
+
 import ResultPopup from "./ResultPopup";
 import OptionsContext from "../../store/options-context";
 import LadderContext from "../../store/ladder-context";
@@ -106,7 +106,6 @@ const Ladder = (props) => {
             {...props}
           ></canvas>
         </div>
-        <ResultButtons />
       </div>
       <ResultPopup />
     </React.Fragment>
