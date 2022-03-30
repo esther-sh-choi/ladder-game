@@ -15,8 +15,6 @@ const Ladder = (props) => {
 
   const ladderCtx = useContext(LadderContext);
 
-  console.log(ladderCtx.ladderArr);
-
   const containerSizeRef = useRef();
 
   const [width, setWidth] = useState();
@@ -53,9 +51,6 @@ const Ladder = (props) => {
     //   window.removeEventListener("resize", getContainerSize);
     // };
   }, []);
-
-  console.log(width);
-  console.log(height);
 
   const canvasRef = useRef(null);
 
@@ -97,24 +92,6 @@ const Ladder = (props) => {
 
     drawLadder(context, width, height);
   });
-
-  // const [optionChosen, setOptionChosen] = useState("");
-  // const [letterChosen, setLetterChosen] = useState("");
-  // const [showResultModal, setShowResultModal] = useState(false);
-
-  // const showResultModalHandler = (letter) => {
-  //   setOptionChosen(
-  //     ...optionsCtx.options.filter((option) =>
-  //       Object.keys(option).includes(letter)
-  //     )
-  //   );
-  //   setShowResultModal(true);
-  //   setLetterChosen(letter);
-  // };
-
-  // const closeModalHandler = () => {
-  //   setShowResultModal(false);
-  // };
 
   return (
     <React.Fragment>

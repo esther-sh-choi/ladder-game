@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import OptionsContext from "../../store/options-context";
 import styles from "./ResultButtons.module.css";
 
-const ResultButtons = (props) => {
+const ResultButtons = () => {
   const optionsCtx = useContext(OptionsContext);
 
   const alphBtns = [];
@@ -28,7 +28,7 @@ const ResultButtons = (props) => {
   };
 
   return (
-    <div className={styles["result-btn-container"]}>
+    <section className={styles["result-btn-container"]}>
       {alphBtns.map((letter, i) => (
         <button
           key={i}
@@ -39,7 +39,7 @@ const ResultButtons = (props) => {
           {letter}
         </button>
       ))}
-    </div>
+    </section>
   );
 };
 
