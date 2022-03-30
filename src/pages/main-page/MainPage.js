@@ -1,16 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Ladder from "./Ladder";
 
 import Button from "../../components/UI/Button";
-import OptionsContext from "../../store/options-context";
+import ResultButtons from "./ResultButtons";
 
 import styles from "./MainPage.module.css";
 
 const MainPage = () => {
   const history = useHistory();
-  const optionsCtx = useContext(OptionsContext);
 
   const displayResultsHandler = () => {
     history.push("/result");
@@ -21,6 +20,7 @@ const MainPage = () => {
       <div className={styles["vertical-ladder"]}>
         <Ladder />
       </div>
+      <ResultButtons />
       <footer className={styles.main}>
         <Button
           className={styles.restartBtn}

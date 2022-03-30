@@ -28,7 +28,7 @@ const ResultButtons = () => {
   };
 
   return (
-    <section className={styles["result-btn-container"]}>
+    <div className={styles["result-btn-container"]}>
       {alphBtns.map((letter, i) => (
         <button
           key={i}
@@ -39,7 +39,7 @@ const ResultButtons = () => {
           {letter}
         </button>
       ))}
-    </section>
+    </div>
   );
 };
 
