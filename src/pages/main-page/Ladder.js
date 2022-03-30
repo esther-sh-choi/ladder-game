@@ -48,10 +48,10 @@ const Ladder = (props) => {
 
   useEffect(() => {
     getContainerSize();
-    window.addEventListener("resize", getContainerSize);
-    return () => {
-      window.removeEventListener("resize", getContainerSize);
-    };
+    // window.addEventListener("resize", getContainerSize);
+    // return () => {
+    //   window.removeEventListener("resize", getContainerSize);
+    // };
   }, []);
 
   console.log(width);
