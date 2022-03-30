@@ -28,8 +28,6 @@ const Ladder = (props) => {
   };
 
   const playerSelectHandler = (chosenPlayer) => {
-    console.log(chosenPlayer);
-
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
