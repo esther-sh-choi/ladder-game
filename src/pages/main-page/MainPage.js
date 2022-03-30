@@ -12,8 +12,6 @@ const MainPage = () => {
   const history = useHistory();
   const optionsCtx = useContext(OptionsContext);
 
-  console.log(optionsCtx.options);
-
   const displayResultsHandler = () => {
     history.push("/result");
   };
