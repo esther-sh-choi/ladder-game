@@ -1,4 +1,4 @@
-div.result-btn-container {
+.result-btn-container {
   display: flex;
   justify-content: space-around;
 }
@@ -68,4 +68,4 @@ div.result-btn-container {
     height: 40px;
     width: 40px;
   }
-} ;
+}
