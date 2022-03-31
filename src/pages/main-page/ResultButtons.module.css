@@ -36,6 +36,10 @@
 }
 
 @media screen and (max-width: 950px) {
+  .result-btn-container {
+    height: calc(60px + 0.1vw);
+  }
+
   .resultBtns {
     height: calc(60px + 0.1vw);
     width: calc(60px + 0.1vw);
@@ -43,6 +47,10 @@
 }
 
 @media screen and (max-width: 850px) {
+  .result-btn-container {
+    height: calc(50px + 0.1vw);
+  }
+
   .resultBtns {
     height: calc(50px + 0.1vw);
     width: calc(50px + 0.1vw);
@@ -50,6 +58,10 @@
 }
 
 @media screen and (max-width: 750px) {
+  .result-btn-container {
+    height: calc(45px + 0.1vw);
+  }
+
   .resultBtns {
     height: calc(45px + 0.1vw);
     width: calc(45px + 0.1vw);
@@ -57,15 +69,23 @@
 }
 
 @media screen and (max-width: 550px) {
+  .result-btn-container {
+    height: 40px;
+  }
+
   .resultBtns {
-    height: calc(40px + 0.1vw);
-    width: calc(40px + 0.1vw);
+    height: 40px;
+    width: 40px;
   }
 }
 
 @media screen and (max-width: 350px) {
+  .result-btn-container {
+    height: 37px;
+  }
+
   .resultBtns {
-    height: 40px;
-    width: 40px;
+    height: 37px;
+    width: 37px;
   }
 }

@@ -35,36 +35,41 @@ export const animatedLine = (
 
   const moveX = ladderCtx.pathX[index].slice();
   moveX.unshift(0);
-  console.log(moveX);
 
   ctx.lineWidth = 7.5;
 
   let vertices = [];
 
   vertices.push({ x: position_x, y: position_y });
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 9; i++) {
     if (moveX[i] === 0) {
       // move down one unit
-
       position_y += verticalUnit;
+      if (i === 8) {
+        position_y += 5;
+      }
       vertices.push({ x: position_x, y: position_y });
     } else if (moveX[i] === 2) {
       // move right 2 units and down 1 unit
       position_x += horizontalUnit * 2;
       vertices.push({ x: position_x, y: position_y });
       position_y += verticalUnit;
+      if (i === 8) {
+        position_y += 5;
+      }
       vertices.push({ x: position_x, y: position_y });
     } else if (moveX[i] === -2) {
       // move left 2 units and down 1 unit
-
       position_x -= horizontalUnit * 2;
       vertices.push({ x: position_x, y: position_y });
       position_y += verticalUnit;
+      if (i === 8) {
+        position_y += 5;
+      }
       vertices.push({ x: position_x, y: position_y });
     }
   }
 
-  console.log(vertices);
   const calcWaypoints = (vertices) => {
     let waypoints = [];
     for (let i = 1; i < vertices.length; i++) {
@@ -73,9 +78,9 @@ export const animatedLine = (
       const dx = pt1.x - pt0.x;
       const dy = pt1.y - pt0.y;
 
-      for (let j = 0; j < 15; j++) {
-        const x = pt0.x + dx * (j / 15);
-        const y = pt0.y + dy * (j / 15);
+      for (let j = 0; j < 10; j++) {
+        const x = pt0.x + dx * (j / 10);
+        const y = pt0.y + dy * (j / 10);
         waypoints.push({ x: x, y: y });
       }
     }
@@ -142,7 +147,7 @@ export const animatedLine = (
       Object.keys(option).includes(ladderCtx.resultLetters[index])
     )[0];
     const result = resultObj[ladderCtx.resultLetters[index]];
-    if (t === points.length - 1) {
+    if (t === points.length) {
       document.getElementById("popup").classList.remove("hide");
       document.getElementById("popup-content").innerHTML = result;
       setTimeout(() => {
