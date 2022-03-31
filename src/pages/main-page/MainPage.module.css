@@ -21,6 +21,7 @@ footer.main {
 .resultBtn {
   height: 40px;
   font-size: calc(15px + 0.5vw);
+  color: black;
 }
 
 @media screen and (max-width: 650px) {

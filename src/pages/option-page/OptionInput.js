@@ -39,7 +39,6 @@ const OptionInput = (props) => {
         return item;
       });
 
-      console.log("newData: ", newData);
       setResultOptions(newData);
     }
   };
@@ -51,8 +50,6 @@ const OptionInput = (props) => {
       // If there is empty section
       return;
     }
-
-    console.log(resultOptions);
 
     optionsCtx.saveOptions([...resultOptions]);
 

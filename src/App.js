@@ -42,12 +42,8 @@ function App() {
               <OptionPage className="input" numPlayer={numPlayer} />
             </Route>
           )}
-          <Route path="/main_game">
-            <MainPage />
-          </Route>
-          <Route path="/result">
-            <ResultPage />
-          </Route>
+          <Route path="/main_game" component={MainPage} />
+          <Route path="/result" component={ResultPage} />
         </Switch>
       </div>
     </Router>
