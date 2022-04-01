@@ -9,31 +9,31 @@ const bgm = {
   melodicTechnoSound: new Howl({
     src: [MelodicTechno],
     loop: true,
-    volume: 0.1,
+    volume: 0.2,
     id: 1,
   }),
   KidsDowntempSound: new Howl({
     src: [KidsDowntemp],
     loop: true,
-    volume: 0.1,
+    volume: 0.2,
     id: 1,
   }),
   LightStepSound: new Howl({
     src: [LightStep],
     loop: true,
-    volume: 0.1,
+    volume: 0.2,
     id: 1,
   }),
   SpyJazzSound: new Howl({
     src: [SpyJazz],
     loop: true,
-    volume: 0.1,
+    volume: 0.2,
     id: 1,
   }),
   TechnoSound: new Howl({
     src: [Techno],
     loop: true,
-    volume: 0.1,
+    volume: 0.2,
     id: 1,
   }),
 };
