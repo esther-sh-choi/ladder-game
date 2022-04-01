@@ -1,25 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 const OptionsContext = createContext([]);
 
 export const OptionsContextProvider = (props) => {
-  //update optionscontext
-  const [inputOptions, setInputOptions] = useState([]);
-  const [results, setResults] = useState([]);
-
   const saveOptionsHandler = (optionsArr) => {
-    setInputOptions((prevState) => [...prevState, ...optionsArr]);
-  };
-
-  const saveResultsHandler = (results) => {
-    setResults((prev) => prev.concat(results));
+    localStorage.setItem("options", JSON.stringify(optionsArr));
   };
 
   const context = {
-    options: inputOptions,
-    results: results,
     saveOptions: saveOptionsHandler,
-    saveResults: saveResultsHandler,
   };
 
   return (

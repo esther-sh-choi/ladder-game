@@ -6,13 +6,14 @@ import OptionsContext from "../../store/options-context";
 
 import styles from "./OptionInput.module.css";
 
-const OptionInput = (props) => {
+const OptionInput = () => {
   const history = useHistory();
 
   const optionsCtx = useContext(OptionsContext);
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
 
   let options = [];
-  for (let i = 0; i < props.numPlayer; i++) {
+  for (let i = 0; i < numPlayer; i++) {
     const alphabets = ["A", "B", "C", "D", "E", "F"];
     options.push(alphabets[i]);
   }
@@ -30,7 +31,10 @@ const OptionInput = (props) => {
 
     if (!resultOptions.some((item) => item.id === key)) {
       // if there is no item in the array with this key, add this new data
-      setResultOptions([...resultOptions, { id: key, [letter]: value }]);
+      setResultOptions([
+        ...resultOptions,
+        { id: key, [letter]: value, letter: letter },
+      ]);
     } else {
       const newData = resultOptions.map((item) => {
         if (item.id === key) {
@@ -46,14 +50,14 @@ const OptionInput = (props) => {
   const saveResultOptions = (e) => {
     e.preventDefault();
 
-    if (props.numPlayer > resultOptions.length) {
+    if (numPlayer > resultOptions.length) {
       // If there is empty section
       return;
     }
 
     optionsCtx.saveOptions([...resultOptions]);
 
-    history.push("/main_game");
+    history.push("/main");
   };
 
   return (

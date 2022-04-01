@@ -6,9 +6,7 @@ import GetPlayerNum from "./GetPlayerNum";
 import styles from "./StartPage.module.css";
 
 const StartPage = (props) => {
-  const savePlayerNumHandler = (num) => {
-    props.onSavePlayerNum(num);
-  };
+  localStorage.clear();
 
   return (
     <div className={styles.start}>
@@ -19,7 +17,6 @@ const StartPage = (props) => {
       </Instruction>
       <GetPlayerNum
         className={styles.playerNum}
-        onGetPlayerNum={savePlayerNumHandler}
         musicOff={props.musicOff}
       ></GetPlayerNum>
     </div>

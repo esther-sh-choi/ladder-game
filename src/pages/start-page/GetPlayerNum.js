@@ -15,11 +15,13 @@ const GetPlayerNum = (props) => {
   const savePlayerNumHandler = (e) => {
     e.preventDefault();
 
-    const playerNum = playerNumRef.current.value;
-    if (!playerNum) {
-      return;
-    }
-    props.onGetPlayerNum(playerNum);
+    localStorage.setItem(
+      "playerNum",
+      JSON.stringify(playerNumRef.current.value)
+    );
+
+    const playerNum = JSON.parse(localStorage.getItem("playerNum"));
+
     ladderCtx.generateLadder(playerNum);
 
     history.push("/option");

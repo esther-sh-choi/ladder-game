@@ -9,12 +9,9 @@ import MainPage from "./pages/main-page/MainPage";
 import ResultPage from "./pages/result-page/ResultPage";
 
 function App() {
-  const [numPlayer, setNumPlayer] = useState("");
   const [musicOff, setMusicOff] = useState(false);
 
-  const savePlayerNumHandler = (num) => {
-    setNumPlayer(num);
-  };
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
 
   const toggleSoundHandler = (musicOff) => {
     setMusicOff(musicOff);
@@ -25,24 +22,18 @@ function App() {
       <div className="app">
         <Header
           title="The Ladder Game"
-          numPlayer={numPlayer && `${numPlayer} people playing`}
+          numPlayerInfo={numPlayer && `${numPlayer} people playing`}
           onToggleSound={toggleSoundHandler}
         />
         <Switch>
           <Route exact path="/">
-            {!numPlayer && (
-              <StartPage
-                onSavePlayerNum={savePlayerNumHandler}
-                musicOff={musicOff}
-              />
-            )}
+            <StartPage musicOff={musicOff} />
           </Route>
-          {numPlayer > 1 && (
-            <Route path="/option">
-              <OptionPage className="input" numPlayer={numPlayer} />
-            </Route>
-          )}
-          <Route path="/main_game" component={MainPage} />
+
+          <Route path="/option">
+            <OptionPage className="input" numPlayer={numPlayer} />
+          </Route>
+          <Route path="/main" component={MainPage} />
           <Route path="/result" component={ResultPage} />
         </Switch>
       </div>

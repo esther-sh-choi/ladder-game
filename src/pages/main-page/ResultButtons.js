@@ -1,21 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import OptionsContext from "../../store/options-context";
 import styles from "./ResultButtons.module.css";
 
 const ResultButtons = () => {
-  const optionsCtx = useContext(OptionsContext);
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
+  const options = JSON.parse(localStorage.getItem("options"));
 
   const alphBtns = [];
 
-  for (let i = 0; i < optionsCtx.options.length; i++) {
+  for (let i = 0; i < numPlayer; i++) {
     const alphList = ["A", "B", "C", "D", "E", "F"];
 
     alphBtns.push(alphList[i]);
   }
 
   const chooseResultHandler = (e) => {
-    const resultObj = optionsCtx.options.filter((option) =>
+    const resultObj = options.filter((option) =>
       Object.keys(option).includes(e.target.value)
     )[0];
     const result = resultObj[e.target.value];

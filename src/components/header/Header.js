@@ -24,7 +24,7 @@ const Header = (props) => {
       <div className={styles.headerContainer}>
         <header>
           <h1>{props.title}</h1>
-          <p>{props.numPlayer}</p>
+          <p>{props.numPlayerInfo}</p>
         </header>
         <FontAwesomeIcon
           className={styles.barIcon}

@@ -1,10 +1,8 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import styles from "./ResultPage.module.css";
 
-import OptionsContext from "../../store/options-context";
-import LadderContext from "../../store/ladder-context";
 import Button from "../../components/UI/Button";
 import ResultModal from "../../components/UI/ResultModal";
 import Instruction from "../../components/UI/Instruction";
@@ -23,13 +21,14 @@ const ResultPage = (props) => {
   const [animalChoice, setAnimalChoice] = useState("");
   const [result, setResult] = useState({});
 
-  const optionsCtx = useContext(OptionsContext);
-  const ladderCtx = useContext(LadderContext);
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
+  const options = JSON.parse(localStorage.getItem("options"));
+  const resultLetters = JSON.parse(localStorage.getItem("resultLetters"));
 
   const icons = [];
   const iconsStr = [];
 
-  for (let i = 0; i < optionsCtx.options.length; i++) {
+  for (let i = 0; i < numPlayer; i++) {
     const animalList = [bear, dog, racoon, cat, fox, panda];
     const animalStringList = ["bear", "dog", "racoon", "cat", "fox", "panda"];
 
@@ -48,45 +47,45 @@ const ResultPage = (props) => {
   const setResultHandler = (animalChoice) => {
     setAnimalChoice(animalChoice);
     if (animalChoice === "bear") {
-      setLetterChosen(ladderCtx.resultLetters[0]);
+      setLetterChosen(resultLetters[0]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[0])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[0])
         )[0]
       );
     } else if (animalChoice === "dog") {
-      setLetterChosen(ladderCtx.resultLetters[1]);
+      setLetterChosen(resultLetters[1]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[1])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[1])
         )[0]
       );
     } else if (animalChoice === "racoon") {
-      setLetterChosen(ladderCtx.resultLetters[2]);
+      setLetterChosen(resultLetters[2]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[2])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[2])
         )[0]
       );
     } else if (animalChoice === "cat") {
-      setLetterChosen(ladderCtx.resultLetters[3]);
+      setLetterChosen(resultLetters[3]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[3])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[3])
         )[0]
       );
     } else if (animalChoice === "fox") {
-      setLetterChosen(ladderCtx.resultLetters[4]);
+      setLetterChosen(resultLetters[4]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[4])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[4])
         )[0]
       );
     } else if (animalChoice === "panda") {
-      setLetterChosen(ladderCtx.resultLetters[5]);
+      setLetterChosen(resultLetters[5]);
       setResult(
-        optionsCtx.options.filter((option) =>
-          Object.keys(option).includes(ladderCtx.resultLetters[5])
+        options.filter((option) =>
+          Object.keys(option).includes(resultLetters[5])
         )[0]
       );
     }

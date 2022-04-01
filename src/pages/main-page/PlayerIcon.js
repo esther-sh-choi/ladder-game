@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-
-import OptionsContext from "../../store/options-context";
+import React from "react";
 
 import styles from "./PlayerIcon.module.css";
 import bear from "../../images/player1-bear.png";
@@ -11,12 +9,12 @@ import fox from "../../images/player5-fox.png";
 import panda from "../../images/player6-panda.png";
 
 const PlayerIcon = (props) => {
-  const optionsCtx = useContext(OptionsContext);
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
 
   const icons = [];
   const iconsStr = [];
 
-  for (let i = 0; i < optionsCtx.options.length; i++) {
+  for (let i = 0; i < numPlayer; i++) {
     const animalList = [bear, dog, racoon, cat, fox, panda];
     const animalStringList = ["bear", "dog", "racoon", "cat", "fox", "panda"];
 

@@ -13,7 +13,7 @@ const OptionPage = (props) => {
         <br />
         (Max 30 characters)
       </Instruction>
-      <OptionInput className={styles.optionInput} numPlayer={props.numPlayer} />
+      <OptionInput className={styles.optionInput} />
     </div>
   );
 };

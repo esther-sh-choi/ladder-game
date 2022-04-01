@@ -9,9 +9,9 @@ export const MusicContextProvider = (props) => {
   const [chosenSong, setChosenSong] = useState(0);
 
   const songList = [
-    bgm.melodicTechnoSound,
     bgm.KidsDowntempSound,
     bgm.LightStepSound,
+    bgm.melodicTechnoSound,
     bgm.SpyJazzSound,
     bgm.TechnoSound,
   ];
@@ -50,9 +50,12 @@ export const MusicContextProvider = (props) => {
     }
   }, [musicOff, chosenSong, songList]);
 
+  localStorage.setItem("chosenSong", JSON.stringify(chosenSong));
+
   const context = {
     currentSong: chosenSong,
     musicOff: musicOff,
+    songList: songList,
     playBGM: playBGMHandler,
     changeSong: changeSongHandler,
     toggleMusic: toggleMusicHandler,

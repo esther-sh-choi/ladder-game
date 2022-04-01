@@ -1,19 +1,16 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { animatedLine } from "./animatedLine";
 
 import PlayerIcon from "./PlayerIcon";
 
 import ResultPopup from "./ResultPopup";
-import OptionsContext from "../../store/options-context";
-import LadderContext from "../../store/ladder-context";
 import styles from "./Ladder.module.css";
 
 const Ladder = (props) => {
-  const optionsCtx = useContext(OptionsContext);
-  const numPlayer = optionsCtx.options.length;
+  const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
 
-  const ladderCtx = useContext(LadderContext);
+  const ladderArr = JSON.parse(localStorage.getItem("ladderArr"));
 
   const containerSizeRef = useRef();
 
@@ -31,15 +28,7 @@ const Ladder = (props) => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
 
-    animatedLine(
-      context,
-      width,
-      height,
-      numPlayer,
-      ladderCtx,
-      chosenPlayer,
-      optionsCtx
-    );
+    animatedLine(context, width, height, numPlayer, chosenPlayer);
   };
 
   useEffect(() => {
@@ -71,10 +60,10 @@ const Ladder = (props) => {
     const position_x = w / (numPlayer * 2);
     const position_y = h / 9;
 
-    if (ladderCtx.ladderArr.length > 0) {
+    if (ladderArr.length > 0) {
       for (let i = 1; i < 9; i++) {
         for (let j = 1; j <= numPlayer * 2 - 3; j = j + 2)
-          if (ladderCtx.ladderArr[i][j] === 1) {
+          if (ladderArr[i][j] === 1) {
             ctx.beginPath();
             ctx.moveTo(position_x * j, position_y * i);
             ctx.lineTo(position_x * j + lengthHorizontal, position_y * i);

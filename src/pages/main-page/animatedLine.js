@@ -1,12 +1,7 @@
-export const animatedLine = (
-  ctx,
-  w,
-  h,
-  numPlayer,
-  ladderCtx,
-  player,
-  optionsCtx
-) => {
+export const animatedLine = (ctx, w, h, numPlayer, player) => {
+  const options = JSON.parse(localStorage.getItem("options"));
+  const pathX = JSON.parse(localStorage.getItem("ladderPath"));
+  const resultLetters = JSON.parse(localStorage.getItem("resultLetters"));
   const horizontalUnit = w / (numPlayer * 2);
   const verticalUnit = h / 9;
   let index;
@@ -33,7 +28,7 @@ export const animatedLine = (
     index = 5;
   }
 
-  const moveX = ladderCtx.pathX[index].slice();
+  const moveX = pathX[index].slice();
   moveX.unshift(0);
 
   ctx.lineWidth = 7.5;
@@ -127,7 +122,7 @@ export const animatedLine = (
   };
 
   const animateFox = () => {
-    ctx.strokeStyle = "#443dff";
+    ctx.strokeStyle = "#000080";
 
     animationLine(animateFox);
 
@@ -143,10 +138,11 @@ export const animatedLine = (
   };
 
   function popupAnimation() {
-    const resultObj = optionsCtx.options.filter((option) =>
-      Object.keys(option).includes(ladderCtx.resultLetters[index])
+    const resultObj = options.filter((option) =>
+      Object.keys(option).includes(resultLetters[index])
     )[0];
-    const result = resultObj[ladderCtx.resultLetters[index]];
+    const result = resultObj[resultLetters[index]];
+
     if (t === points.length) {
       document.getElementById("popup").classList.remove("hide");
       document.getElementById("popup-content").innerHTML = result;
