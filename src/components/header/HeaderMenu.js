@@ -7,8 +7,6 @@ import styles from "./HeaderMenu.module.css";
 const HeaderMenu = (props) => {
   const musicCtx = useContext(MusicContext);
 
-  console.log(musicCtx.songList);
-
   const toggleSoundHandler = () => {
     musicCtx.toggleMusic();
 
