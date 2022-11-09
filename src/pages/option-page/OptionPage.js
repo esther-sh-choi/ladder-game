@@ -1,7 +1,7 @@
 import React from "react";
 
 import Instruction from "../../components/UI/Instruction";
-import OptionInput from "./OptionInput";
+import OptionInput from "../../components/OptionInput/";
 
 import styles from "./OptionPage.module.css";
 

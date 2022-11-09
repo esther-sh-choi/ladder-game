@@ -15,10 +15,8 @@ const ResultButtons = () => {
   }
 
   const chooseResultHandler = (e) => {
-    const resultObj = options.filter((option) =>
-      Object.keys(option).includes(e.target.value)
-    )[0];
-    const result = resultObj[e.target.value];
+    const resultObj = options.filter((option) => option.id === e.target.id)[0];
+    const result = resultObj.inputOption;
 
     document.getElementById("popup").classList.remove("hide");
     document.getElementById("popup-content").innerHTML = result;
@@ -32,6 +30,7 @@ const ResultButtons = () => {
       {alphBtns.map((letter, i) => (
         <button
           key={i}
+          id={i}
           className={styles.resultBtns}
           value={letter}
           onClick={chooseResultHandler}

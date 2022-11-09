@@ -8,11 +8,6 @@
   background: rgba(0, 0, 0, 0.75);
 }
 
-/* .modalContainer {
-  display: flex;
-  justify-content: center;
-} */
-
 .resultModal {
   position: fixed;
   top: calc(50% - (100px + 15vh) / 2);
@@ -24,7 +19,7 @@
   width: calc(150px + 30vw);
   height: calc(100px + 15vh);
 
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255);
   border-radius: 20px;
 
   font-family: "SF Pro", "Franklin Gothic Medium", "Arial Narrow", Arial,
@@ -40,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(109, 7, 137, 0.763);
+  background: rgb(183, 87, 209);
 
   font-size: calc(15px + 1vw);
   font-weight: bold;

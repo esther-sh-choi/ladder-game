@@ -138,10 +138,10 @@ export const animatedLine = (ctx, w, h, numPlayer, player) => {
   };
 
   function popupAnimation() {
-    const resultObj = options.filter((option) =>
-      Object.keys(option).includes(resultLetters[index])
+    const resultObj = options.filter(
+      (option) => option.letter === resultLetters[index]
     )[0];
-    const result = resultObj[resultLetters[index]];
+    const result = resultObj.inputOption;
 
     if (t === points.length) {
       document.getElementById("popup").classList.remove("hide");

@@ -36,6 +36,7 @@ const Header = (props) => {
         <HeaderMenu
           className={styles.menu}
           displayMenu={openMenu}
+          onBackdropClick={openMenuHandler}
           onToggleSound={toggleSoundHandler}
         />
       )}

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Instruction from "../../components/UI/Instruction";
-import GetPlayerNum from "./GetPlayerNum";
+import GetPlayerNum from "../../components/GetPlayerNum";
 
 import styles from "./StartPage.module.css";
 

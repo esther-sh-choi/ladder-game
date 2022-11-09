@@ -1,6 +1,5 @@
 import React from "react";
 
-import styles from "./PlayerIcon.module.css";
 import bear from "../../images/player1-bear.png";
 import dog from "../../images/player2-dog.png";
 import racoon from "../../images/player3-racoon.png";
@@ -8,9 +7,10 @@ import cat from "../../images/player4-cat.png";
 import fox from "../../images/player5-fox.png";
 import panda from "../../images/player6-panda.png";
 
+import styles from "./PlayerIcon.module.css";
+
 const PlayerIcon = (props) => {
   const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
-
   const icons = [];
   const iconsStr = [];
 

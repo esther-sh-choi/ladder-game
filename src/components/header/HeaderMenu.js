@@ -7,8 +7,6 @@ import styles from "./HeaderMenu.module.css";
 const HeaderMenu = (props) => {
   const musicCtx = useContext(MusicContext);
 
-  console.log(musicCtx.songList);
-
   const toggleSoundHandler = () => {
     musicCtx.toggleMusic();
 
@@ -23,7 +21,7 @@ const HeaderMenu = (props) => {
 
   return (
     <div className={props.displayMenu ? "" : `${styles.hide}`}>
-      <div className={styles.backdrop}></div>
+      <div className={styles.backdrop} onClick={props.onBackdropClick}></div>
       <div className={styles.menu}>
         <ul className={styles.menuList}>
           <li>
