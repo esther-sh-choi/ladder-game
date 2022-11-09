@@ -21,7 +21,7 @@ const HeaderMenu = (props) => {
 
   return (
     <div className={props.displayMenu ? "" : `${styles.hide}`}>
-      <div className={styles.backdrop}></div>
+      <div className={styles.backdrop} onClick={props.onBackdropClick}></div>
       <div className={styles.menu}>
         <ul className={styles.menuList}>
           <li>

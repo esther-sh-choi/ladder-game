@@ -1,20 +1,14 @@
-## Project Name
-
-#### Ladder Game
+# Ladder Game
 
 A game for 2-6 players that randomly matches the players with an input value takes in an input based on the number of players. It consists of ladder algorithm that assigns the input values to the player randomly. It is often used to set prizes, built with React, JavaScript, and CSS.
 
-## Project Status
+## Introduction
 
-(only necessary if incomplete)
+This app is an online version of the 'ladder game' that is very widely used draw lots. Usually, the ladders are drawn by hand and thus, the result of the lot can be manipulated. I made this app so that the ladder building algorithm stays random and is impartial to everyone involved. Also, this app is accessible on all devices through the link provided in case there are no pen and paper around.
 
-#### Example:
+## Technologies
 
-This project is currently in development. Users can filter tweets by username and keyword and see visual data representation. Functionality to sort by additional parameters is in progress.
-
-## Project Screen Shot(s)
-
-#### Example:
+## Project Screen Shots
 
 ![Hnet-image-2](https://user-images.githubusercontent.com/100092097/160527535-0f250a16-d108-412f-83f9-d5e6dcd5f4f4.gif)
 ![Hnet-image](https://user-images.githubusercontent.com/100092097/160527576-09ca21af-3d97-4058-b45e-b3cda6535648.gif)

@@ -1,14 +1,13 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import Button from "../../components/UI/Button";
+import Button from "../UI/Button";
 import OptionsContext from "../../store/options-context";
 
 import styles from "./OptionInput.module.css";
 
 const OptionInput = () => {
-  const history = useHistory();
-
+  const navigate = useNavigate();
   const optionsCtx = useContext(OptionsContext);
   const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
 
@@ -33,12 +32,12 @@ const OptionInput = () => {
       // if there is no item in the array with this key, add this new data
       setResultOptions([
         ...resultOptions,
-        { id: key, [letter]: value, letter: letter },
+        { id: key, inputOption: value, letter: letter },
       ]);
     } else {
       const newData = resultOptions.map((item) => {
         if (item.id === key) {
-          item[letter] = value;
+          item.inputOption = value;
         }
         return item;
       });
@@ -57,7 +56,7 @@ const OptionInput = () => {
 
     optionsCtx.saveOptions([...resultOptions]);
 
-    history.push("/main");
+    navigate("/main");
   };
 
   return (

@@ -1,10 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { useHistory } from "react-router-dom";
-
-import styles from "./ResultPage.module.css";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../../components/UI/Button";
-import ResultModal from "../../components/UI/ResultModal";
+import ResultModal from "../../components/ResultModal/";
 import Instruction from "../../components/UI/Instruction";
 
 import bear from "../../images/player1-bear.png";
@@ -14,8 +12,10 @@ import cat from "../../images/player4-cat.png";
 import fox from "../../images/player5-fox.png";
 import panda from "../../images/player6-panda.png";
 
+import styles from "./ResultPage.module.css";
+
 const ResultPage = (props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
   const [letterChosen, setLetterChosen] = useState("");
   const [animalChoice, setAnimalChoice] = useState("");
@@ -38,56 +38,32 @@ const ResultPage = (props) => {
 
   const clickPlayerResultHandler = (e) => {
     e.preventDefault();
-
     setOpenModal(true);
-
     setResultHandler(e.target.id);
+  };
+
+  const chooseAnimal = (index) => {
+    setLetterChosen(resultLetters[index]);
+    const resultObj = options.filter(
+      (option) => option.letter === resultLetters[index]
+    )[0];
+    setResult(resultObj);
   };
 
   const setResultHandler = (animalChoice) => {
     setAnimalChoice(animalChoice);
     if (animalChoice === "bear") {
-      setLetterChosen(resultLetters[0]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[0])
-        )[0]
-      );
+      chooseAnimal(0);
     } else if (animalChoice === "dog") {
-      setLetterChosen(resultLetters[1]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[1])
-        )[0]
-      );
+      chooseAnimal(1);
     } else if (animalChoice === "racoon") {
-      setLetterChosen(resultLetters[2]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[2])
-        )[0]
-      );
+      chooseAnimal(2);
     } else if (animalChoice === "cat") {
-      setLetterChosen(resultLetters[3]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[3])
-        )[0]
-      );
+      chooseAnimal(3);
     } else if (animalChoice === "fox") {
-      setLetterChosen(resultLetters[4]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[4])
-        )[0]
-      );
+      chooseAnimal(4);
     } else if (animalChoice === "panda") {
-      setLetterChosen(resultLetters[5]);
-      setResult(
-        options.filter((option) =>
-          Object.keys(option).includes(resultLetters[5])
-        )[0]
-      );
+      chooseAnimal(5);
     }
   };
 
@@ -118,8 +94,7 @@ const ResultPage = (props) => {
         <Button
           className={styles.replay}
           onClick={() => {
-            history.push("/");
-            window.location.reload(false);
+            navigate("/");
           }}
         >
           Replay
@@ -131,7 +106,7 @@ const ResultPage = (props) => {
           letterChosen={letterChosen}
           animalChoice={animalChoice}
         >
-          {result[letterChosen]}
+          {result.inputOption}
         </ResultModal>
       )}
     </Fragment>

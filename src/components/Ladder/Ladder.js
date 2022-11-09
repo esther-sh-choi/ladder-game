@@ -1,19 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { animatedLine } from "./animatedLine";
+import { animatedLine } from "../../pages/main-page/animatedLine";
+import PlayerIcon from "../PlayerIcon";
+import ResultPopup from "../ResultPopup";
 
-import PlayerIcon from "./PlayerIcon";
-
-import ResultPopup from "./ResultPopup";
 import styles from "./Ladder.module.css";
 
 const Ladder = (props) => {
   const numPlayer = JSON.parse(localStorage.getItem("playerNum"));
-
   const ladderArr = JSON.parse(localStorage.getItem("ladderArr"));
-
   const containerSizeRef = useRef();
-
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
 
@@ -33,10 +29,6 @@ const Ladder = (props) => {
 
   useEffect(() => {
     getContainerSize();
-    // window.addEventListener("resize", getContainerSize);
-    // return () => {
-    //   window.removeEventListener("resize", getContainerSize);
-    // };
   }, []);
 
   const canvasRef = useRef(null);

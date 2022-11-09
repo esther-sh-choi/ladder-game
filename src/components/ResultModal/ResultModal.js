@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import styles from "./ResultModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const Backdrop = (props) => {
-  return <div className={styles.backdrop}></div>;
+import styles from "./ResultModal.module.css";
+
+const Backdrop = ({ onClick }) => {
+  return <div className={styles.backdrop} onClick={onClick}></div>;
 };
 
 const ModalOverlay = (props) => {
@@ -37,7 +38,7 @@ const ResultModal = (props) => {
   return (
     <div className={styles.modalContainer}>
       {ReactDOM.createPortal(
-        <Backdrop />,
+        <Backdrop onClick={closeModalHandler} />,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(

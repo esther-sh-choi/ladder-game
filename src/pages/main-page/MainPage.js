@@ -1,18 +1,17 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import Ladder from "./Ladder";
-
+import Ladder from "../../components/Ladder/";
 import Button from "../../components/UI/Button";
-import ResultButtons from "./ResultButtons";
+import ResultButtons from "../../components/ResultButtons/";
 
 import styles from "./MainPage.module.css";
 
 const MainPage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const displayResultsHandler = () => {
-    history.push("/result");
+    navigate("/result");
   };
 
   return (
@@ -25,8 +24,7 @@ const MainPage = () => {
         <Button
           className={styles.restartBtn}
           onClick={() => {
-            history.push("/");
-            window.location.reload(false);
+            navigate("/");
           }}
         >
           RESTART
